@@ -29,18 +29,18 @@ This project is an AI-powered application that detects and classifies diseases i
 
 ### 1. Clone the Repository
 
-```git clone https://github.com/AmartyaGhoshyoo/Mushroom-Diseases-Prediction-App.git```
+git clone``` https://github.com/AmartyaGhoshyoo/Mushroom-Diseases-Prediction-App.git```
 
 ### 2. Run the server
 
-```cd "YoloV5 Server Code"```
-```pip install -r requirements.txt```
+```cd "YoloV5 Server Code"```\n
+```pip install -r requirements.txt```\n
 ```python -m waitress --host=0.0.0.0 --port=5000 --channel-timeout=200 server:app```
 
 ### 3. Get the app
 
-```cd "Mushroom Disease Prediction"```
-```cd android```
+```cd "Mushroom Disease Prediction"```\n
+```cd android```\n
 ```./gradlew assembleRelease```
 
 ### Find the APK 
