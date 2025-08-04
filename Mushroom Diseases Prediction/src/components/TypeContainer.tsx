@@ -1,26 +1,47 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-
+import { StyleSheet, Text, View } from 'react-native';
 // Constants
-import {COLORS} from '../constants';
-import {Card} from './Card';
-import {urlToName} from '../utils';
+import { COLORS } from '../constants';
+import { Card } from './Card';
+// Import the same type used in your navigation/route params
+// import { CultivationStep } from '../types'; // Adjust path as needed
 
-type TypeContainerProps = CultivationTech;
+// Temporary interface that matches your CultivationStep exactly
+interface CultivationStep {
+  name?: string;
+  desc?: string[];
+  types?: CultivationStep[];
+  imageUri?: string | Array<string | { img: string; label: string } | undefined>;
+}
 
-const TypeContainer = ({name, desc, types, imageUri}: TypeContainerProps) => {
+type TypeContainerProps = CultivationStep;
+
+const TypeContainer = ({ name, desc, types, imageUri }: TypeContainerProps) => {
+  // Filter out undefined values to match the expected type
+  const cleanImageUri = Array.isArray(imageUri) 
+    ? (imageUri.filter(item => item !== undefined && item !== null) as Array<string | { img: string; label: string }>)
+    : imageUri;
+
   return (
     <View style={styles.container}>
       {name && <Text style={styles.heading}>{name}</Text>}
-      {imageUri?.map(image => {
-        const label = urlToName(image);
+      {(Array.isArray(cleanImageUri) ? cleanImageUri : [cleanImageUri]).map((imageObj, index) => {
+        if (!imageObj) return null;
+        
+        const isWrapped = typeof imageObj === 'object' && 'img' in imageObj;
+        const image = isWrapped ? imageObj.img : imageObj as string;
+        const label = isWrapped ? imageObj.label : 'Image';
+        
+        // Generate a unique key combining image and index
+        const uniqueKey = `${typeof image === 'string' ? image : 'img'}-${index}`;
+        
         return (
           Boolean(image) && (
             <Card
               imageUrl={image}
-              name={label[0].toUpperCase() + label.slice(1)}
-              id={+image}
-              key={image}
+              name={label.charAt(0).toUpperCase() + label.slice(1)}
+              id={typeof image === 'string' && !isNaN(Number(image)) ? Number(image) : index}
+              key={uniqueKey}
               customStyles={{
                 cardImage: {
                   width: 350,
@@ -31,20 +52,22 @@ const TypeContainer = ({name, desc, types, imageUri}: TypeContainerProps) => {
                 cardText: {
                   fontSize: 15,
                   color: COLORS.info,
-                  fontWeight: 'normal',
+                  fontWeight: 'normal' as const,
                 },
               }}
             />
           )
         );
       })}
+      
       <View style={styles.textBox}>
-        {desc?.map((el, index) => (
+        {desc?.map((el: string, index: number) => (
           <Text key={index} style={styles.desc}>
             {el}
           </Text>
         ))}
       </View>
+      
       {types?.map((el, index) => (
         <TypeContainer
           name={el.name}

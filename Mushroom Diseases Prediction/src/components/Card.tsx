@@ -1,5 +1,7 @@
 import React from 'react';
 import {Image, Text, View, StyleSheet} from 'react-native';
+import { ImageSourcePropType } from 'react-native';
+
 
 // Constants
 import {COLORS} from '../constants';
@@ -21,12 +23,11 @@ export const Card = ({
   id,
   customStyles,
 }: CardProps): JSX.Element => {
-  console.log(imageUrl);
 
   return (
     <View style={[styles.card, customStyles?.card]} key={id}>
       <Image
-        source={{uri: imageUrl}}
+        source={imageUrl as ImageSourcePropType}
         style={customStyles?.cardImage || styles.cardImage}
       />
       <Text style={customStyles?.cardText || styles.cardText}>{name}</Text>

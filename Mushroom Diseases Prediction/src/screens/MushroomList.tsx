@@ -12,6 +12,8 @@ import {
 // Navigation
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../App';
+import { ImageSourcePropType } from 'react-native';
+
 
 // Constants
 import {COLORS} from '../constants';
@@ -33,7 +35,7 @@ const MushroomList = ({navigation, route}: MushroomListProps) => {
       style={styles.background}>
       <View style={styles.container}>
         <Text style={styles.heading}>{title}</Text>
-        <Image source={{uri: imageUrl}} style={styles.image} />
+        <Image source={imageUrl as ImageSourcePropType} style={styles.image} />
         <FlatList
           data={data}
           numColumns={2}

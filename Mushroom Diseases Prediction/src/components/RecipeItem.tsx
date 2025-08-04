@@ -12,6 +12,9 @@ import {RootStackParamList} from '../App';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {BG_IMG} from '../data/constants';
 import {COLORS} from '../constants';
+import { ImageSourcePropType } from 'react-native';
+
+
 
 type RecipeItemProps = NativeStackScreenProps<RootStackParamList, 'RecipeItem'>;
 
@@ -21,7 +24,7 @@ const RecipeItem = ({route}: RecipeItemProps) => {
   const renderHeader = () => (
     <View>
       <Text style={styles.title}>{title}</Text>
-      <Image source={{uri: imageUrl}} style={styles.image} />
+      <Image source={imageUrl as ImageSourcePropType} style={styles.image} />
       <Text style={[styles.subtitle]}>Ingredients</Text>
     </View>
   );

@@ -4,6 +4,8 @@ import {Image, ImageBackground, StyleSheet, Text, View} from 'react-native';
 // Navigation
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../App';
+import { ImageSourcePropType } from 'react-native';
+
 
 // Constants
 import {COLORS} from '../constants';
@@ -25,7 +27,7 @@ const MushroomDetails = ({navigation, route}: MushroomDetailsProps) => {
       style={styles.background}>
       <View style={styles.container}>
         <Text style={styles.heading}>{name}</Text>
-        <Image source={{uri: imageUrl}} style={styles.image} />
+        <Image source={imageUrl as ImageSourcePropType} style={styles.image} />
         <View style={styles.descriptionContainer}>
           <Text style={styles.description}>{description}</Text>
         </View>

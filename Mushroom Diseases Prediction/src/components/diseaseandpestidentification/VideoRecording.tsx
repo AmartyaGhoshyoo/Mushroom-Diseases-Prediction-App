@@ -29,22 +29,77 @@ const CaptureAndUploadVideo: React.FC = () => {
   const [downloadedFilePath, setDownloadedFilePath] = useState<string | null>(null);
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
 
+  // State for hidden video duration check
+  const [checkingDuration, setCheckingDuration] = useState<boolean>(false);
+  const [tempVideoUri, setTempVideoUri] = useState<string | null>(null);
+
+  // Check video duration using a hidden Video component
+  const handleVideoDurationCheck = (data: any, asset: any) => {
+    if (data.duration > 30) {
+      Alert.alert(
+        'Video Too Long', 
+        'Please record a video that is 30 seconds or shorter.',
+        [{ text: 'OK' }]
+      );
+      setCheckingDuration(false);
+      setTempVideoUri(null);
+      return;
+    }
+    
+    // Duration is acceptable, proceed with upload
+    setCheckingDuration(false);
+    setTempVideoUri(null);
+    setRecordedVideo(asset.uri || null);
+    setProcessedVideoPath(null);
+    setDownloadedFilePath(null);
+    setDetectedClasses([]);
+    uploadAndProcessVideo(asset);
+  };
+
   // Record Video from Camera
   const handleRecordVideo = () => {
-    launchCamera({ mediaType: 'video', cameraType: 'back' }, result => {
-      if (result.didCancel) {
-        console.log('User cancelled video recording');
-      } else if (result.errorCode) {
-        console.log('Camera Error:', result.errorMessage);
-      } else if (result.assets && result.assets.length > 0) {
-        const asset = result.assets[0];
-        setRecordedVideo(asset.uri || null);
-        setProcessedVideoPath(null);
-        setDownloadedFilePath(null);
-        setDetectedClasses([]); // Reset detected classes
-        uploadAndProcessVideo(asset);
+    launchCamera(
+      { 
+        mediaType: 'video', 
+        cameraType: 'back',
+        videoQuality: 'medium', // Optional: set video quality
+        durationLimit: 30, // Set duration limit to 30 seconds
+      }, 
+      (result) => {
+        if (result.didCancel) {
+          console.log('User cancelled video recording');
+        } else if (result.errorCode) {
+          console.log('Camera Error:', result.errorMessage);
+        } else if (result.assets && result.assets.length > 0) {
+          const asset = result.assets[0];
+          
+          // Check if video duration is provided by the camera
+          if (asset.duration && asset.duration > 30000) { // duration is in milliseconds
+            Alert.alert(
+              'Video Too Long', 
+              'Please record a video that is 30 seconds or shorter.',
+              [{ text: 'OK' }]
+            );
+            return;
+          }
+
+          // If no duration provided by camera, use Video component to check
+          if (asset.uri && !asset.duration) {
+            setCheckingDuration(true);
+            setTempVideoUri(asset.uri);
+            // The duration check will be handled by the hidden Video component's onLoad
+            return;
+          }
+
+          // Duration is acceptable or not provided, proceed with upload
+          setRecordedVideo(asset.uri || null);
+          setProcessedVideoPath(null);
+          setDownloadedFilePath(null);
+          setDetectedClasses([]); // Reset detected classes
+          uploadAndProcessVideo(asset);
+        }
       }
-    });
+    );
   };
 
   // Upload and Process Video
@@ -106,18 +161,18 @@ const CaptureAndUploadVideo: React.FC = () => {
 
       if (result.statusCode === 200) {
         if (Platform.OS === 'android' && Number(Platform.Version) >= 30) {
-          Alert.alert('Success', 'Video downloaded! Check your downloads folder.');
+          Alert.alert('Success', 'Video downloaded! Check your Gallery.');
         } else {
           await RNFS.moveFile(downloadDest, `${RNFS.PicturesDirectoryPath}/${fileName}`);
           Alert.alert('Success', 'Video saved to gallery!');
         }
         setDownloadedFilePath(downloadDest);
       } else {
-        Alert.alert('Error', 'Failed to download the video.');
+        Alert.alert('Error', 'Failed to download the video.Android version incompatible.');
       }
     } catch (error) {
       console.error('Error downloading the video:', error);
-      Alert.alert('Error', 'Failed to download the video.');
+      Alert.alert('Error', 'Failed to download the video.Android version incompatible.');
     } finally {
       setDownloading(false);
     }
@@ -132,15 +187,47 @@ const CaptureAndUploadVideo: React.FC = () => {
 
   return (
     <ImageBackground
-      source={require('./../../assets/backgrounds.jpg')}
+      source={require('./../../assets/Know_your_Mushroom/Gomphusfloccous.png')}
       style={styles.background}
       imageStyle={{ marginRight: -50 }}>
       <ScrollView contentContainerStyle={styles.container}>
+        <Text style={styles.instructionText}>Video duration must be under 30 seconds</Text>
         <TouchableOpacity style={styles.button} onPress={handleRecordVideo}>
-          <Text style={styles.buttonText}>Record Video</Text>
+          <Text style={styles.buttonText}>Record Video (Max 30s)</Text>
         </TouchableOpacity>
 
         {loading && <ActivityIndicator size="large" color="#FFFFFF" style={styles.spinner} />}
+
+        {checkingDuration && (
+          <View style={styles.checkingContainer}>
+            <ActivityIndicator size="large" color="#FFFFFF" />
+            <Text style={styles.checkingText}>Checking video duration...</Text>
+          </View>
+        )}
+
+        {/* Hidden video component for duration checking */}
+        {tempVideoUri && (
+          <Video
+            source={{ uri: tempVideoUri }}
+            style={{ width: 0, height: 0 }}
+            onLoad={(data) => {
+              const currentAsset = { uri: tempVideoUri };
+              handleVideoDurationCheck(data, currentAsset);
+            }}
+            onError={(error) => {
+              console.log('Error checking video duration:', error);
+              setCheckingDuration(false);
+              setTempVideoUri(null);
+              // Proceed with upload anyway if duration check fails
+              const asset = { uri: tempVideoUri };
+              setRecordedVideo(asset.uri || null);
+              setProcessedVideoPath(null);
+              setDownloadedFilePath(null);
+              setDetectedClasses([]);
+              uploadAndProcessVideo(asset);
+            }}
+          />
+        )}
 
         {processedVideoPath && (
           <>
@@ -235,6 +322,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonText: { color: '#FFFFFF', fontSize: 16, fontWeight: 'bold' },
+  instructionText: { 
+    color: '#FFFFFF', 
+    fontSize: 18, 
+    fontWeight: 'bold', 
+    textAlign: 'center', 
+    marginBottom: 20,
+    paddingHorizontal: 20 
+  },
   closeButton: {
     backgroundColor: '#DC143C',
     paddingVertical: 12,
@@ -243,6 +338,15 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   spinner: { marginTop: 20 },
+  checkingContainer: { 
+    marginTop: 20, 
+    alignItems: 'center' 
+  },
+  checkingText: { 
+    color: '#FFFFFF', 
+    marginTop: 10, 
+    fontSize: 14 
+  },
   detectionContainer: { marginTop: 20, paddingHorizontal: 20 },
   detectionTitle: { fontWeight: 'bold', fontSize: 16, color: '#FFFFFF' },
   detectionText: { fontSize: 14, marginTop: 5, color: '#FFFFFF' },

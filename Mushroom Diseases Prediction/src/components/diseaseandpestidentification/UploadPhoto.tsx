@@ -104,18 +104,18 @@ const UploadImage: React.FC = () => {
 
       if (result.statusCode === 200) {
         if (Platform.OS === 'android' && Number(Platform.Version) >= 30) {
-          Alert.alert('Success', 'Image downloaded! Check your downloads folder.');
+          Alert.alert('Success', 'Image downloaded! Check your Gallery.');
         } else {
           await RNFS.moveFile(downloadDest, `${RNFS.PicturesDirectoryPath}/${fileName}`);
           Alert.alert('Success', 'Image saved to gallery!');
         }
         setDownloadedFilePath(downloadDest);
       } else {
-        Alert.alert('Error', 'Failed to download the image.');
+        Alert.alert('Error', 'Failed to download the image.Android version incompatible.');
       }
     } catch (error) {
       console.error('Error downloading the image:', error);
-      Alert.alert('Error', 'Failed to download the image.');
+      Alert.alert('Error', 'Failed to download the image.Android version incompatible.');
     } finally {
       setDownloading(false);
     }
@@ -129,7 +129,7 @@ const UploadImage: React.FC = () => {
   };
 
   return (
-    <ImageBackground source={require('./../../assets/backgroundssss.jpg')} style={styles.background}>
+    <ImageBackground source={require('./../../assets/Know_your_Mushroom/Tit_kseh.png')} style={styles.background}>
       <ScrollView contentContainerStyle={styles.container}>
         <TouchableOpacity style={styles.button} onPress={handleImageSelect}>
           <Text style={styles.buttonText}>Select Image from Gallery</Text>

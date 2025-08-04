@@ -6,27 +6,27 @@ export const MENU_ITEMS: Menu[] = [
   },
   {
     id: 2,
-    title: 'Production technology',
+    title: 'Production Technology',
     route: 'ProductionTechList',
   },
   {
     id: 3,
-    title: 'Disease identification',
+    title: 'Disease Identification',
     route: 'PestIdentification',
   },
   {
     id: 4,
-    title: 'Nutritional & medicinal value',
+    title: 'Nutritional & Medicinal',
     route: 'NutritionalValue',
   },
   {
     id: 5,
-    title: 'Government schemes',
+    title: 'Government Schemes',
     route: 'GovernmentSchemes',
   },
   {
     id: 6,
-    title: 'Mushroom recipes',
+    title: 'Mushroom Recipes',
     route: 'Recipes',
   },
   {
@@ -50,63 +50,63 @@ export const MUSHROOM_DATA: Mushroom[] = [
   {
     id: 1,
     name: 'Shiitake Mushroom',
-    imageUrl: 'https://thumbs2.imgbox.com/c9/b1/v5EwR3wq_t.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/NShiitakegrowing.jpg'),
     description:
       'It grows extensively in decaying logs of Daks Jolcham oak, Sawtooth oak, Horn beans and chestnut in Meghalaya forests.',
   },
   {
     id: 2,
     name: 'Tit Duma',
-    imageUrl: 'https://thumbs2.imgbox.com/ab/7f/Epmwy4iH_t.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/Gomphusfloccous.png'),
     description:
       'The cap is funnel shaped. The stem is about 2 cm long, tout and the cap are 5-8 cm across and grey brownish in colour.',
   },
   {
     id: 3,
     name: 'Tit Kseh',
-    imageUrl: 'https://thumbs2.imgbox.com/37/8f/1K12XI9P_t.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/titkesh.jpg'),
     description:
       'These are ectomycorrhizal fungi, existing in a symbiotic relationship with various species of coniferous or broad-leaved trees.',
   },
   {
     id: 4,
     name: 'Tit Stem',
-    imageUrl: 'https://thumbs2.imgbox.com/af/2a/t7cps8Fx_t.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/craterellusodoratus.png'),
     description:
       'This mushroom species is cone-shaped, crimped, lobed ends, convex, thin, often several near each other. It has bright orange to yellow and does not have gills and has a strong fragrance.',
   },
   {
     id: 5,
     name: 'Tit Doh',
-    imageUrl: 'https://thumbs2.imgbox.com/44/99/NlYxrU5n_t.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/Lactarius_volemus.jpg'),
     description:
       'It is mycorrhizal fungus, its fruit bodies grow on the ground at the base of various species of trees from summer to autumn, either individually or in groups. It also has a distinctive fishy smell which does not affect its taste. The odour disappears during cooking. The latex only has a mild taste.',
   },
   {
     id: 6,
     name: 'Tit Khangai Pylleng',
-    imageUrl: 'https://thumbs2.imgbox.com/c4/7d/shL0NTyr_t.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/Cantharellus_cibarius.jpg'),
     description:
       'A commonly eaten and favoured mushroom, the chanterelle is typically harvested from late summer to late fall. It is used in many culinary dishes, and can be preserved by either drying or freezing. An oven should not be used when drying it because it can result in the mushroom becoming bitter. ',
   },
   {
     id: 7,
     name: 'Tit Tyngab',
-    imageUrl: 'https://thumbs2.imgbox.com/c9/ac/Mm82xEwZ_t.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/Laccarialateritia.jpg'),
     description:
       'Some species of Laccaria may serve as pioneers in disturbed ground or de-forested areas that eventually turns to a "mature" ecosystem. Several species of Laccaria are frequently found in young pine plantations.',
   },
   {
     id: 8,
     name: 'Tit Ibong Hati',
-    imageUrl: 'https://thumbs2.imgbox.com/fc/7f/enWOdajU_t.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/Ramaria_boyrytis.jpeg'),
     description:
       'These are fleshy cauliflower-like masses with a stout central stem that splits into a few lower primary branches before branching densely above.',
   },
   {
     id: 9,
     name: 'Tit Thnat Syiar',
-    imageUrl: 'https://thumbs2.imgbox.com/5a/b3/kR8pZm8m_t.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/clavulina_sp..jpg'),
     description:
       'Characterized by having extensively branched fruiting bodies and often look like coral. These are found to be distributed on soil or leaf litter. Clavulina species are important primary colonizers of forest litter and occur immediately after the pre-monsoon showers.',
   },
@@ -116,63 +116,63 @@ export const mushroomsInMeghalaya: Mushroom[] = [
   {
     id: 1,
     name: 'Shiitake',
-    imageUrl: 'https://i.ibb.co/MccvWjn/shiitake.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/NShiitakegrowing.jpg'),
     description:
       'It grows extensively in decaying logs of Daks Jolcham oak, Sawtooth oak, Horn beans and chestnut in Meghalaya forests.',
   },
   {
     id: 3,
     name: 'Tit kseh',
-    imageUrl: 'https://i.ibb.co/rtFjq09/tricholoma-viridiolivaceum.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/titkesh.jpg'),
     description:
       'Tricholoma viridiolivaceum: Known as Tit kseh/Tit kadai in Khasi tribes. Forms symbiotic relationships with various trees and grows in woodlands.',
   },
   {
     id: 2,
     name: 'Gomphus floccosus',
-    imageUrl: 'https://i.ibb.co/yYcMHcL/gomphus-floccous.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/Ngomphus-floccous.jpg'),
     description:
       'Locally called Tit duma, Tit thlong, and Tit tyndong in Khasi tribes. Features funnel-shaped cap and reddish to yellowish-orange scales.',
   },
   {
     id: 4,
     name: 'Craterellus odoratus',
-    imageUrl: 'https://i.ibb.co/JytkRhy/craterellus-odoratus.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/Ncraterellus-odoratus.jpg'),
     description:
       'This mushroom species is cone-shaped, crimped, lobed ends, convex, thin, often several near each other. It has bright orange to yellow and does not have gills and has a strong fragrance.',
   },
   {
     id: 5,
     name: 'Lactarious volemus',
-    imageUrl: 'https://i.ibb.co/8bYsTVB/lactarious-volemus.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/Nlactarious-volemus.jpg'),
     description:
       'Known as Tit doh/Tit tung in Khasi tribes. Mycorrhizal fungus with a distinctive fishy smell that disappears during cooking.',
   },
   {
     id: 6,
     name: 'Cantharellus cibarius',
-    imageUrl: 'https://i.ibb.co/7YT33YF/cantharellus-cibarius.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/Ncantharellus-cibarius.jpg'),
     description:
       'Known as Tit khangai pylleng in Khasi. Features funnel-shaped caps and is commonly harvested from late summer to late fall.',
   },
   {
     id: 7,
     name: 'Laccaria lateritia',
-    imageUrl: 'https://i.ibb.co/qFpKZYK/laccaria-lateritia.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/Laccarialateritia.jpg'),
     description:
       'Some species of Laccaria may serve as pioneers in disturbed ground or de-forested areas that eventually turns to a "mature" ecosystem. Several species of Laccaria are frequently found in young pine plantations.',
   },
   {
     id: 8,
     name: 'Ramaria boyrytis',
-    imageUrl: 'https://i.ibb.co/vHtYpXv/ramaria-boyrytis.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/Ramaria_boyrytis.jpeg'),
     description:
       'Locally called Tit lbong hati. Produces fleshy, cauliflower-like masses with a stout central stem and irregular branching pattern.',
   },
   {
     id: 9,
     name: 'Clavulina sp.',
-    imageUrl: 'https://i.ibb.co/V37rFYH/clavulina-sp.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/clavulina_sp..jpg'),
     description:
       'Known as Tit thnat syiar. Features extensively branched fruiting bodies resembling coral, important primary colonizers of forest litter.',
   },
@@ -182,14 +182,14 @@ export const commonlyCultivatedMushrooms: Mushroom[] = [
   {
     id: 1,
     name: 'Oyster',
-    imageUrl: 'https://i.ibb.co/xYXpLSb/oyster-mushroom.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/Oyster.jpg'),
     description:
       'Oyster Mushroom is one most common type of cultivated mushroom. It can be cultivated on various agro-waste like paddy straw, wheat straw, maize stalk and cobs, oats straw etc. without composting. The cultivation of oyster mushrooms is comparatively easier and it grows in a wide range of temperatures. Oyster mushrooms can be grown throughout the year.',
   },
   {
     id: 2,
     name: 'Button',
-    imageUrl: 'https://i.ibb.co/4PGDdxq/white-button-mushroom.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/Button.jpg'),
     // [
     //   'https://i.ibb.co/HXjM6dL/cremini-mushroom.png',
     //   'https://i.ibb.co/FbFk3qX/portobello-mushroom.png',
@@ -201,21 +201,21 @@ export const commonlyCultivatedMushrooms: Mushroom[] = [
   {
     id: 3,
     name: 'Paddy Straw',
-    imageUrl: 'https://i.ibb.co/tx8JMTd/paddy-straw.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/Paddy_straw.jpg'),
     description:
       "Paddy straw mushrooms are also referred to as 'warm mushrooms' as they grow at a relatively higher temperature. It is a fast-growing mushroom and is cultivated in tropics and sub-tropics. It is considered as one of the easiest mushrooms to cultivate. Various agro-waste like paddy straw, sugarcane bagasse, cotton waste etc. can be used as substrate.",
   },
   {
     id: 4,
     name: 'Sajor-caju',
-    imageUrl: 'https://i.ibb.co/S5Bwjq5/sajor-caju.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/sajor_caju.jpeg'),
     description:
       'Lentinus sajor-caju was formerly known as Pleurotus sajor-caju. It is not an oyster mushroom but is often confused with it. Since ages sajor-caju has been used for medicinal purposes as it contains high potassium-to-sodium ratio. The fruit bodies are solitary or in clusters, and grow on logs.  Its commercial cultivation is mainly done on agricultural wastes.',
   },
   {
     id: 5,
     name: 'Shiitake',
-    imageUrl: 'https://i.ibb.co/MccvWjn/shiitake.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/Shiitake_Image.png'),
     description:
       'Shiitake mushroom can be cultivated on sterilized sawdust and wood chips mixture of hardwood trees like poplar, oak, mango etc. It can also be cultivated on the wood of broadleaf trees, mainly oak and chestnut by inoculating spawns on holes drilled in logs. It is considered to have number of medicinal properties.',
   },
@@ -225,42 +225,42 @@ export const medicinalMushrooms: Mushroom[] = [
   {
     id: 1,
     name: 'Cordyceps',
-    imageUrl: 'https://i.ibb.co/dDG5hqj/cordyceps.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/Cordyceps.jpg'),
     description:
       'Cordyceps are usually found in high mountain regions. To cater the growing demand, this fungus is being cultivated in labs. Studies have shown that cordyceps boost athletic ability as it increases the production of ATP, the compound that gives cells energy. It is one of the most expensive mushrooms in the world.  Cordycepin, a component of Cordyceps, can potentially be useful in treatment for some cancers.',
   },
   {
     id: 2,
     name: "Lion's Mane",
-    imageUrl: 'https://i.ibb.co/568fdGr/lion-mane.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/lion_mane.jpg'),
     description:
       "Lion's Mane grows on trunks of dead hardwood trees such as oak, however it can be cultivated in a controlled environment. It contains two special compounds that can stimulate healthy brain function. Studies have found that lion's mane may help protect against Alzheimer's disease, a degenerative brain disease that causes progressive memory loss.",
   },
   {
     id: 3,
     name: "Turkey's Tail",
-    imageUrl: 'https://i.ibb.co/h1ycc6b/turkey-tail.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/turkey_tail.jpg'),
     description:
       'Turkey tail mushroom grows on stumps and the decomposing wood of trees. Evidence shows it may help fortify your immune system, maintain healthy gut bacteria, and may support the treatment of some cancers.',
   },
   {
     id: 4,
     name: 'Maitake',
-    imageUrl: 'https://i.ibb.co/nzScxrm/maitake.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/maitkaw.jpg'),
     description:
       '“Maitake” means dancing mushroom in Japanese. The mushroom is said to have gotten its name after people danced with happiness upon finding it in the wild, such are its incredible healing properties. The mushroom grows wild in parts of Japan, China, and North America. It grows at the bottom of Oak, Elm, and Maple trees in autumn months. Laboratory research suggests that maitake may be effective in treating certain illnesses like cancer, type-2 diabetes. Studies indicate a compound found in this mushroom can help in breast cancer treatment.',
   },
   {
     id: 5,
     name: 'Reishi',
-    imageUrl: 'https://i.ibb.co/RzYKhqC/reishi.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/Reishi.jpg'),
     description:
       'The reishi mushroom is a fungus that grows in various hot and humid locations in Asia. It can boost the immune system, may help in cancer treatment and may also reduce fatigue and depression. It can be cultivated on sterilized sawdust or paddy straw.',
   },
   {
     id: 6,
     name: 'Enoki Mushroom',
-    imageUrl: 'https://i.ibb.co/fM2m1dJ/enoki-mushroom.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/enoki.webp'),
     description:
       'Enoki mushrooms, also known as golden needle mushrooms, are a type of edible mushroom that grows on decaying wood in the wild. It can be cultivated on sawdust or hardwood. They are believed to have immune-boosting and anti-cancerous properties.',
   },
@@ -270,28 +270,28 @@ export const Poisonous_Mushroom_Data: Mushroom[] = [
   {
     id: 1,
     name: 'Bright Colored',
-    imageUrl: 'https://i.ibb.co/ScxJH7f/colorful-bright-caps.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/BrightColored.jpg'),
     description:
       'Avoid mushrooms with attractive bright-colored caps or stems.',
   },
   {
     id: 2,
     name: 'White-Gilled',
-    imageUrl: 'https://i.ibb.co/j6b8k5T/white-gills.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/white_gilled.jpg'),
     description:
       'Check for the presence of a white ring on the stem.\nLook for bulbous growth at the end of the mushroom stem.\nAvoid mushrooms with sweet smells.',
   },
   {
     id: 3,
     name: 'Umbrella-Shaped',
-    imageUrl: 'https://i.ibb.co/1nQBVyL/ring-around-stem.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/umbrella_shaped.jpg'),
     description:
       'Stay away from mushrooms with umbrella-shaped caps\nEnsure mushrooms are not consumed unless identified as safe with 100% certainty.',
   },
   {
     id: 4,
     name: 'Bulbous Base',
-    imageUrl: 'https://i.ibb.co/mh1SLL2/bulbous-base.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/Bullbous_base.jpg'),
     description:
       'Be cautious of wrinkles or irregular caps.\nAvoid mushrooms with white gills, as they often signify poisonous types.',
   },
@@ -300,25 +300,25 @@ export const Poisonous_Mushroom_Data: Mushroom[] = [
 export const MUSHROOM_LIST: MushroomList[] = [
   {
     id: 1,
-    imageUrl: 'https://i.ibb.co/JytkRhy/craterellus-odoratus.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/Ngomphus-floccous.jpg'),
     title: 'Mushrooms in Meghalaya',
     data: mushroomsInMeghalaya,
   },
   {
     id: 2,
-    imageUrl: 'https://i.ibb.co/xYXpLSb/oyster-mushroom.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/Oyster.jpg'),
     title: 'Commonly cultivated mushrooms',
     data: commonlyCultivatedMushrooms,
   },
   {
     id: 3,
-    imageUrl: 'https://i.ibb.co/dDG5hqj/cordyceps.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/Reishi.jpg'),
     title: 'Medicinal mushrooms',
     data: medicinalMushrooms,
   },
   {
     id: 4,
-    imageUrl: 'https://i.ibb.co/ScxJH7f/colorful-bright-caps.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/BrightColored.jpg'),
     title: 'Poisonous mushrooms',
     data: Poisonous_Mushroom_Data,
   },
@@ -333,47 +333,47 @@ export const OYSTER_PRODUCTION_TECH: ProductionTech = {
     'In hilly areas, the best growing season is during March/April to September/October and in the other regions from September/October to March/April.',
     'The productivity of oyster mushroom per unit time is very high as compared to all other cultivated mushrooms.',
   ],
-  imageUri: 'https://images2.imgbox.com/49/d3/ZVswBjAN_o.png',
+  imageUri: require('../assets/Know_your_Mushroom/Oyster.jpg'),
   requiredMaterials: [
     {
       material: 'Thatched hut/polythene chamber/mud etc.',
-      materialUri: 'https://i.ibb.co/BrLp4XP/thatched-house.jpg',
+      materialUri: require('../assets/Production_oyster/thatched-house.jpg'),
     },
     {
       material: 'Mould free, dry golden yellow straw/agrowaste',
-      materialUri: 'https://i.ibb.co/h8sNx2r/yellow-straw.jpg',
+      materialUri: require('../assets/Production_oyster/yellow-straw.jpg'),
     },
     {
       material: 'Spawn',
-      materialUri: 'https://i.ibb.co/WPykqT0/spawn.webp',
+      materialUri: require('../assets/Production_oyster/spawn.jpg'),
     },
     {
       material: 'Polythene bag',
-      materialUri: 'https://i.ibb.co/4PJjmVj/polythene-bag.jpg',
+      materialUri: require('../assets/Production_oyster/polythene-bag.jpg'),
     },
     {
       material: 'Water sprayer',
-      materialUri: 'https://i.ibb.co/tzSYLmd/water-sprayer.jpg',
+      materialUri: require('../assets/Production_oyster/water-sprayer.jpg'),
     },
     {
       material: 'Hand chopper or Chaff cutter',
-      materialUri: 'https://i.ibb.co/h29jmbp/hand-chopper.webp',
+      materialUri: require('../assets/Production_oyster/hand-chopper.jpg'),
     },
     {
       material: 'Jute rope, coconut ropes/plastic ropes',
-      materialUri: 'https://i.ibb.co/GVmXwSB/jute-rope.jpg',
+      materialUri: require('../assets/Production_oyster/jute-rope.jpg'),
     },
     {
       material: 'Mother spawn or mushroom seeds',
-      materialUri:
-        'https://raw.githubusercontent.com/Anubhavdxt/mushroomMentor/main/src/assets/images/required-materials/spawn.webp',
+      
+      materialUri: require('../assets/Production_oyster/mother_spawn.jpg'),
     },
   ],
   cultivationTech: [
     {
       name: 'Preparation or procurement of spawn',
-      imageUri: ['https://i.ibb.co/8xXZb1b/substrate-preparation.webp'],
-    },
+      imageUri: [{img: require('../assets/Production_oyster/PPSsubstrate-preparation.jpg'),label:'Substrate Preparation'},
+  ]},
     {
       name: 'Substrate selection and preparation',
       desc: [],
@@ -386,7 +386,7 @@ export const OYSTER_PRODUCTION_TECH: ProductionTech = {
             'Paddy straw, wheat straw, corn cobs and leaves, cotton waste, pea nut shells, dried grasses, sunflower stalks, used tea leaf waste sugarcane bagasse and leaves can be used.',
             'Since paddy straw is easily available and cheap, it is widely used. Paddy straw should be fresh and well dried.',
           ],
-          imageUri: ['https://i.ibb.co/1vgT64s/straw.jpg'],
+          imageUri:  require('../assets/Production_oyster/SSPstraw.jpg'),
         },
         {
           name: 'Substrate Preparation',
@@ -396,8 +396,8 @@ export const OYSTER_PRODUCTION_TECH: ProductionTech = {
             'For the best result the straw should be immersed in boiling water and extra water is drained off from straw by spreading it on raised wired mesh.',
           ],
           imageUri: [
-            'https://i.ibb.co/kJ6mFzp/straw-soaking.jpg',
-            'https://i.ibb.co/0ZVbdMC/straw-chopping.jpg',
+            { img: require('../assets/Production_oyster/SSPstraw-soaking.jpg'), label: 'Straw soaking'},
+            { img: require('../assets/Production_oyster/SSPstraw-chopping.jpg'), label: 'Straw chopping'}
           ],
         },
         {
@@ -415,7 +415,8 @@ export const OYSTER_PRODUCTION_TECH: ProductionTech = {
                 'Dip the filled bag in hot water of 80-85 0 C for about 10-15 minutes.',
                 'To avoid floating, press it with some heavy material.',
               ],
-              imageUri: ['https://i.ibb.co/zbG69NT/hot-water-treatment.jpg'],
+              imageUri: [
+            { img: require('../assets/Production_oyster/SSPhot-water-treatment.jpg'), label: 'hot-water-treatment'}],
             },
             {
               name: 'Steam pasteurization',
@@ -424,7 +425,8 @@ export const OYSTER_PRODUCTION_TECH: ProductionTech = {
                 'Steam pasteurization at 80°C for 2 hours is done in autoclave or special steam chambers, suitable for semi-commercial production',
                 'OR sterilized in an autoclave (after filling in PP bags, plugged with cotton) at 121°C, 15 lb pressure for 15 minutes (best method for commercial production)',
               ],
-              imageUri: ['https://i.ibb.co/PmspnYm/steam-pasteurization.webp'],
+              imageUri: [
+{ img: require('../assets/Production_oyster/SSPsteam-pasteurization.jpg'), label: 'Steam pasteurization'}],
             },
             {
               name: 'Chemical sterilization',
@@ -434,7 +436,8 @@ export const OYSTER_PRODUCTION_TECH: ProductionTech = {
                 'Soaked straw is covered with a polythene sheet. After about 18 hours the straw is taken out and excess water drained off.',
                 'Spread the straw on neat and clean cemented floor or raised wire mesh frame (A handful of straw should produce no more than a few drops of water).',
               ],
-              imageUri: ['https://i.ibb.co/6D08Gqq/chemical-sterilization.png'],
+              imageUri: [
+{ img: require('../assets/Production_oyster/SSPchemical-sterilization.png'), label: 'Chemical sterilization'},],
             },
             {
               name: 'Note',
@@ -477,7 +480,9 @@ export const OYSTER_PRODUCTION_TECH: ProductionTech = {
           ],
         },
       ],
-      imageUri: ['https://i.ibb.co/wdRmTVj/spawning.webp'],
+      imageUri: [
+{ img: require('../assets/Production_oyster/SSspawning.jpg'), label: 'Spawning'},],
+
     },
     {
       name: 'Incubation',
@@ -488,10 +493,10 @@ export const OYSTER_PRODUCTION_TECH: ProductionTech = {
         'Observe the beds daily for contamination, if any. The contaminated beds should be removed and destroyed. Frequent spraying of water is required in the cropping room depending upon the atmospheric humidity.',
       ],
       imageUri: [
-        'https://i.ibb.co/XDHpCQ1/incubation-room.jpg',
-        'https://i.ibb.co/zhvNhc0/rack-system-incubation.jpg',
-        'https://i.ibb.co/n7nQ0mS/rope-hanging-system.jpg',
-        'https://i.ibb.co/YjrxSXZ/hanging-rope-system.jpg',
+        { img: require('../assets/Production_oyster/Iincubation-room.jpg'), label: 'Incubation room'},
+{ img: require('../assets/Production_oyster/Irack-system-incubation.jpg'), label: 'Rack system incubation'},
+{ img: require('../assets/Production_oyster/Irope-hanging-system.jpg'), label: 'Rope hanging system'},
+{ img: require('../assets/Production_oyster/Ihanging-rope-system.jpg'), label: 'Hanging rope system'},
       ],
     },
     {
@@ -556,8 +561,9 @@ export const OYSTER_PRODUCTION_TECH: ProductionTech = {
         },
       ],
       imageUri: [
-        'https://i.ibb.co/DLrCkTy/misting-mushrooms.webp',
-        'https://i.ibb.co/FbXQcT1/pin-head-appearing.jpg',
+        { img: require('../assets/Production_oyster/CPmisting-mushrooms.jpg'), label: 'Misting mushrooms'},
+
+        { img: require('../assets//Production_oyster/CPpin-head-appearing.jpg'), label: 'Pin head appearing'},
       ],
     },
     {
@@ -572,7 +578,9 @@ export const OYSTER_PRODUCTION_TECH: ProductionTech = {
         'The dried produce with 2-4% moisture can be stored for 3 to 4 months after sealing well.',
         'Yield: The average yield comes around 100-125 kg mushrooms/100 kg dry straw or substratum.',
       ],
-      imageUri: ['https://i.ibb.co/Kx8L18N/mature-mushroom.jpg'],
+      imageUri: [
+        { img: require('../assets/Production_oyster/mature-mushroom.jpg'), label: 'Mature mushroom'},
+],
     },
   ],
   problems: [
@@ -608,43 +616,43 @@ export const BUTTON_PRODUCTION_TECH: ProductionTech = {
     'White button mushroom requires 20-28°C for vegetative growth (spawn run) and 12-18°C for reproductive growth. Besides that, it requires relative humidity of 80-90% and enough ventilation during cropping.',
     'Seasonally, it is grown during the winter months in the north-west plains of India and for 8-10 months in a year in the hills. However, with the advent of modern cultivation technology it is now possible to cultivate this mushroom anywhere in India.',
   ],
-  imageUri: 'https://i.ibb.co/4PGDdxq/white-button-mushroom.jpg',
+  imageUri:  require('../assets/Know_your_Mushroom/Button.jpg'),
   requiredMaterials: [
     {
       material: 'Mushroom shed',
-      materialUri: 'https://i.ibb.co/gL5GpFg0/mushroom-shed.jpg',
+      materialUri:  require('../assets/ProductionButton/mushroom-shed.jpg'),
     },
     {
       material: 'Spawn',
-      materialUri: 'https://i.ibb.co/KjSs11hC/button-mushroom-spawn.jpg',
+      materialUri:  require('../assets/ProductionButton/spawn_mixing.jpg'),
     },
     {
       material: 'Growing substrate: Composted manure, straw and gypsum',
-      materialUri: 'https://i.ibb.co/x8rtfTj5/composted-manure.png',
+      materialUri:  require('../assets/ProductionButton/composted-manure.png'),
     },
     {
       material: 'Casing soil: Soil like material on top of substrate',
-      materialUri: 'https://i.ibb.co/HfQSvgYh/casing.webp',
+      materialUri:  require('../assets//ProductionButton/casing.jpg'),
     },
     {
       material: 'Growing beds',
-      materialUri: 'https://i.ibb.co/prWc0YZP/growing-beds.jpg',
+      materialUri:  require('../assets/ProductionButton/growing-beds.jpg'),
     },
     {
       material: 'Humidity and temperature control equipment',
-      materialUri: 'https://i.ibb.co/RpkmGrRQ/hygrometer.jpg',
+      materialUri:  require('../assets/ProductionButton/hygrometer.jpg'),
     },
     {
       material: 'Watering cans',
-      materialUri: '',
+      materialUri:  require('../assets//ProductionButton/watering.jpg')
     },
     {
       material: 'Sterilization equipment',
-      materialUri: '',
+      materialUri:  require('../assets/ProductionButton/sterilization.jpg'),
     },
     {
       material: 'Spawn mixing and filling tools',
-      materialUri: '',
+      materialUri:  require('../assets/ProductionButton/spawn_mixing.jpg'),
     },
   ],
   cultivationTech: [
@@ -676,8 +684,9 @@ export const BUTTON_PRODUCTION_TECH: ProductionTech = {
                 'The first-generation pure culture prepared from mushroom fruit body tissue is called mother culture.',
               ],
               imageUri: [
-                'https://i.ibb.co/35nvwg5v/tissue-taken-out-for-mother-culture-1.jpg',
-                'https://i.ibb.co/21c4b6Cs/tissue-taken-out-for-mother-culture-2.jpg',
+  { img: require('../assets/ProductionButton/SPtissue-taken-out-for-mother-culture-1.jpg'), label: 'tissue taken out for mother culture-1' },
+  { img: require('../assets/ProductionButton/SPtissue-taken-out-for-mother-culture-2.jpg'), label: 'tissue taken out for mother culture-2' },
+
               ],
             },
             {
@@ -694,11 +703,11 @@ export const BUTTON_PRODUCTION_TECH: ProductionTech = {
                 'The mother and planting spawn should be properly labelled with the species name, generation and date. Spawn of fifteen to twenty days old is the best for planting.',
               ],
               imageUri: [
-                'https://i.ibb.co/F49wkRJD/soaking-of-substrate.jpg',
-                'https://i.ibb.co/LDZfwTRJ/plugging-substrate-with-non-absorbent-cotton.jpg',
-                'https://i.ibb.co/XkNvHNTD/autoclaving-grains-to-sterilize.jpg',
-                'https://i.ibb.co/Z6x6M0cQ/inoculation-of-substrate-with-mother-culture.jpg',
-              ],
+  { img: require('../assets/ProductionButton/SPsoaking-of-substrate.jpg'), label: 'soaking of substrate.jpg' },
+  { img: require('../assets/ProductionButton/SPplugging-substrate-with-non-absorbent-cotton.jpg'), label: 'plugging substrate with non absorbent cotton' },
+  { img: require('../assets/ProductionButton/SPautoclaving-grains-to-sterilize.jpg'), label: 'autoclaving grains to sterilize.jpg' },
+  { img: require('../assets/ProductionButton/SPinoculation-of-substrate-with-mother-culture.jpg'), label: 'inoculation of substrate with mother culture' },
+],
             },
             {
               name: 'Spawn multiplication',
@@ -708,12 +717,13 @@ export const BUTTON_PRODUCTION_TECH: ProductionTech = {
                 'These are then incubated for 3 weeks. In between the bags are inspected for any contamination.',
               ],
               imageUri: [
-                'https://i.ibb.co/Qx94yt7/spawn-in-pp-bags.jpg',
-                'https://i.ibb.co/7hCMS05/storage-of-spawn.webp',
-              ],
+  { img: require('../assets/ProductionButton/SPspawn-in-pp-bags.jpg'), label: 'spawn in pp bags' },
+  { img: require('../assets/ProductionButton/SPstorage-of-spawn.jpg'), label: 'storage of spawn' },],
             },
           ],
-          imageUri: ['https://i.ibb.co/27LPtV0p/basic-steps.jpg'],
+
+          imageUri: [
+],
         },
         {
           name: 'Storage',
@@ -723,10 +733,12 @@ export const BUTTON_PRODUCTION_TECH: ProductionTech = {
             'The factors like excess moisture in the grains, bad quality grains, improper sterilization and high temperature during storage contribute to spoilage of spawn.',
             'A good spawn is white in colour with profuse mycelia run and without any speck or blemish.',
           ],
-          imageUri: [''],
+          imageUri: [  
+],
         },
       ],
-      imageUri: ['https://i.ibb.co/ZzPDrdqG/mushrrom-spawn.jpg'],
+      imageUri: [
+          { img: require('../assets/ProductionButton/SPmushrrom-spawn.jpg'), label: 'mushrrom spawn' },],
     },
     {
       name: 'Compost preparation',
@@ -786,7 +798,8 @@ export const BUTTON_PRODUCTION_TECH: ProductionTech = {
             },
           ],
           imageUri: [
-            'https://i.ibb.co/q3LKDD2G/outdoor-compost-preparation.webp',
+            { img: require('../assets/ProductionButton/Coutdoor-compost-preparation.jpg'), label: 'outdoor compost preparation'},
+          ,
           ],
         },
         {
@@ -861,7 +874,8 @@ export const BUTTON_PRODUCTION_TECH: ProductionTech = {
                 'Break open the pile and check for the smell of ammonia, if it still persists, give an additional turn after 3 days.',
                 'This way compost is prepared by a long method in 28-30 days.',
               ],
-              imageUri: [''],
+              imageUri: [            
+],
             },
             {
               name: 'Compost readiness',
@@ -871,12 +885,15 @@ export const BUTTON_PRODUCTION_TECH: ProductionTech = {
                 'When lightly squeezed in the hand the moisture in compost should be released in the form of little dampness only and the compost fragments should only just bind together.',
                 'The compost should be fully decomposed and have a C:N ratio of 17:1 and moisture contents of 65-70%.',
               ],
-              imageUri: [''],
+              imageUri: [          
+],
             },
           ],
           imageUri: [
-            'https://i.ibb.co/5x5RDByT/compost-preparation.gif',
-            'https://i.ibb.co/GySmkvq/turning-of-compost.jpg',
+
+{ img: require('../assets/ProductionButton/Ccompost-preparation.jpg'), label: 'compost preparation'},
+{ img: require('../assets/ProductionButton/Cturning-of-compost.jpg'), label: 'turning of compost'},
+
           ],
         },
       ],
@@ -942,8 +959,8 @@ export const BUTTON_PRODUCTION_TECH: ProductionTech = {
         },
       ],
       imageUri: [
-        'https://i.ibb.co/66n97M8/casing-material.jpg',
-        'https://i.ibb.co/7tDX3qFZ/layers-in-substrate.jpg',
+        { img: require('../assets/ProductionButton/Casingcasing-material.jpg'), label: 'casing material'},
+{ img: require('../assets/ProductionButton/Casinglayers-in-substrate.jpg'), label: 'layers in substrate'},
       ],
     },
     {
@@ -969,7 +986,8 @@ export const BUTTON_PRODUCTION_TECH: ProductionTech = {
         'If there are many pin heads around a mushroom to be picked, then it is advisable to cut the mushroom with the help of a sharp-edged knife, so that nearby pins do not get disturbed.',
         'About 10-14 kg. fresh mushrooms per 100 kg. fresh compost can be obtained in two months crop. Short method used for preparation of compost under natural conditions gives more yield (15-20 kg. per 100 kg. compost)',
       ],
-      imageUri: ['https://i.ibb.co/fVMDkL5J/harvesting.webp'],
+      imageUri: [
+        { img: require('../assets/ProductionButton/Hharvesting.jpg'), label: 'harvesting'},],
     },
   ],
 };
@@ -978,13 +996,13 @@ export const PRODUCTION_TECH_LIST: ProductionTechList[] = [
   {
     id: 1,
     title: 'Oyster mushroom production technology',
-    imageUrl: 'https://i.ibb.co/xYXpLSb/oyster-mushroom.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/Oyster.jpg'),
     data: OYSTER_PRODUCTION_TECH,
   },
   {
     id: 2,
     title: 'Button mushroom production technology',
-    imageUrl: 'https://i.ibb.co/4PGDdxq/white-button-mushroom.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/Button.jpg'),
     data: BUTTON_PRODUCTION_TECH,
   },
 ];
@@ -993,86 +1011,86 @@ export const NUTRITIONAL_DATA: Mushroom[] = [
   {
     id: 1,
     name: 'Oyster Mushroom',
-    imageUrl: 'https://i.ibb.co/xYXpLSb/oyster-mushroom.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/Oyster.jpg'),
     description:
       'Reduces risk of Type-I and Type-II Diabetes\nRich in anti-oxidants, helps preventing cancer and heart disease\nHelps in functioning of muscles\nMaintains Oral health and bone',
     nutritionalValue: [
-      {name: 'Calories', value: '33'},
-      {name: 'Protein', value: '3.31g'},
-      {name: 'Fat', value: '0.41 g'},
-      {name: 'Carbohydrate', value: '6.09 g'},
-      {name: 'Dietary fibre', value: '2.3 g'},
-      {name: 'Potassium', value: '420 mg'},
-      {name: 'Calcium', value: '3 mg'},
-      {name: 'Niacin (Vitamin B3)', value: '5 mg'},
-      {name: 'Pantothenic acid (Vitamin B5)', value: '1.3 mg'},
-      {name: 'Riboflavin (Vitamin B2)', value: '0.3 mg'},
-      {name: 'Iron', value: '0.5 mg'},
-      {name: 'Vitamin-D', value: '29 IU mg'},
-      {name: 'Folates', value: '38 μg'},
+      { name: 'Calories', value: '33 kcal' },
+      { name: 'Protein', value: '3.31g' },
+      { name: 'Fat', value: '0.41 g' },
+      { name: 'Carbohydrate', value: '6.09 g' },
+      { name: 'Dietary fibre', value: '2.3 g' },
+      { name: 'Potassium', value: '420 mg' },
+      { name: 'Calcium', value: '3 mg' },
+      { name: 'Niacin (Vitamin B3)', value: '5 mg' },
+      { name: 'Pantothenic acid (Vitamin B5)', value: '1.3 mg' },
+      { name: 'Riboflavin (Vitamin B2)', value: '0.3 mg' },
+      { name: 'Iron', value: '0.5 mg' },
+      { name: 'Vitamin-D', value: '29 IU mg' },
+      { name: 'Folates', value: '38 μg' },
     ],
   },
   {
     id: 2,
     name: 'Button Mushroom',
-    imageUrl: 'https://i.ibb.co/4PGDdxq/white-button-mushroom.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/Button.jpg'),
     description:
       'Contains selenium that reduces risk of prostate cancer\nContains copper which helps in growth, development and maintenance of various organs of body.\nβ-glucans and proteins present in white button mushrooms may prevent fatty liver\nMitigate diseases associated with aging, including cardiovascular disease, liver disease, cataracts, and Alzheimers disease',
     nutritionalValue: [
-      {name: 'Energy', value: '22 kcal'},
-      {name: 'Carbohydrate', value: '3.26 g'},
-      {name: 'Protein', value: '2.18 g'},
-      {name: 'Fat', value: '0.34 g'},
-      {name: 'Dietary fibre', value: '1 g'},
-      {name: 'Potassium', value: '318 mg'},
-      {name: 'Niacin (Vitamin B3)', value: '3.607 mg'},
-      {name: 'Vitamin D', value: '7 IU mg'},
-      {name: 'Riboflavin (Vitamin B2)', value: '0.402 mg'},
-      {name: 'Sodium', value: '5 mg'},
-      {name: 'Selenium', value: '9.5 mcg'},
-      {name: 'Pantothenic acid', value: '1.497 mg'},
-      {name: 'Pyridoxine (B-6)', value: '0.104 mg'},
+      { name: 'Energy', value: '22 kcal' },
+      { name: 'Carbohydrate', value: '3.26 g' },
+      { name: 'Protein', value: '2.18 g' },
+      { name: 'Fat', value: '0.34 g' },
+      { name: 'Dietary fibre', value: '1 g' },
+      { name: 'Potassium', value: '318 mg' },
+      { name: 'Niacin (Vitamin B3)', value: '3.607 mg' },
+      { name: 'Vitamin D', value: '7 IU mg' },
+      { name: 'Riboflavin (Vitamin B2)', value: '0.402 mg' },
+      { name: 'Sodium', value: '5 mg' },
+      { name: 'Selenium', value: '9.5 mcg' },
+      { name: 'Pantothenic acid', value: '1.497 mg' },
+      { name: 'Pyridoxine (B-6)', value: '0.104 mg' },
     ],
   },
   {
     id: 3,
     name: 'Shittake Mushroom',
-    imageUrl: 'https://thumbs2.imgbox.com/c9/b1/v5EwR3wq_t.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/Shiitake_Image.png'),
     description:
       'It contains Lentinal which is has anti-carcinogenic and tumor-supressing properties\nIt helps to strengthen immune system\nCompounds in Shiitake help lower cholesterol level and reduces the risk of heart diseases\nVitamin B5 in Shitake helps in hair growth and nourishment',
     nutritionalValue: [
-      {name: 'Calories', value: '34 kcal'},
-      {name: 'Carbohydrate', value: '3.26 g'},
-      {name: 'Protein', value: '2.24 g'},
-      {name: 'Fat', value: '0.49g'},
-      {name: 'Dietary fibre', value: '2.5 g'},
-      {name: 'Potassium', value: '304 mg'},
-      {name: 'Niacin (Vitamin B3)', value: '3.887 mg'},
-      {name: 'Riboflavin (Vitamin B2)', value: '0.217 mg'},
-      {name: 'Sodium', value: '9 mg'},
-      {name: 'Selenium', value: '5.7 μg'},
-      {name: 'Vitamin-D', value: '18 IU mg'},
-      {name: 'Pantothenic acid (Vitamin B5)', value: '1.500 mg'},
-      {name: 'Pyridoxine (B-6)', value: '1.293'},
+      { name: 'Calories', value: '34 kcal' },
+      { name: 'Carbohydrate', value: '3.26 g' },
+      { name: 'Protein', value: '2.24 g' },
+      { name: 'Fat', value: '0.49g' },
+      { name: 'Dietary fibre', value: '2.5 g' },
+      { name: 'Potassium', value: '304 mg' },
+      { name: 'Niacin (Vitamin B3)', value: '3.887 mg' },
+      { name: 'Riboflavin (Vitamin B2)', value: '0.217 mg' },
+      { name: 'Sodium', value: '9 mg' },
+      { name: 'Selenium', value: '5.7 μg' },
+      { name: 'Vitamin-D', value: '18 IU mg' },
+      { name: 'Pantothenic acid (Vitamin B5)', value: '1.500 mg' },
+      { name: 'Pyridoxine (B-6)', value: '1.293' },
     ],
   },
   {
     id: 4,
     name: 'Paddy straw',
-    imageUrl: 'https://i.ibb.co/tx8JMTd/paddy-straw.jpg',
+    imageUrl: require('../assets/Know_your_Mushroom/Paddy_straw.jpg'),
     description:
       'It may prevent the growth of cancer cells in breast and prostate cancer\nIt has the second largest content of Vitamin D after liver cod oil.\nIt is beneficial for bone growth\nIt has high iron content which reduces the risk of anaemia\nIt contains anti-oxidants which decreases the blood cholesterol level',
     nutritionalValue: [
-      {name: 'Calories', value: '33 kcal'},
-      {name: 'Carbohydrate', value: '3.26 g'},
-      {name: 'Protein', value: '3.8 g'},
-      {name: 'Fat', value: '0.7g'},
-      {name: 'Dietary fibre', value: '2.5 g'},
-      {name: 'Potassium', value: '0.32 g'},
-      {name: 'Niacin (Vitamin B3)', value: '2.40 mg'},
-      {name: 'Riboflavin (Vitamin B2)', value: '0.61 mg'},
-      {name: 'Sodium', value: '0.80 mg'},
-      {name: 'Vitamin-D', value: '28 IU per mg'},
+      { name: 'Calories', value: '33 kcal' },
+      { name: 'Carbohydrate', value: '3.26 g' },
+      { name: 'Protein', value: '3.8 g' },
+      { name: 'Fat', value: '0.7g' },
+      { name: 'Dietary fibre', value: '2.5 g' },
+      { name: 'Potassium', value: '0.32 g' },
+      { name: 'Niacin (Vitamin B3)', value: '2.40 mg' },
+      { name: 'Riboflavin (Vitamin B2)', value: '0.61 mg' },
+      { name: 'Sodium', value: '0.80 mg' },
+      { name: 'Vitamin-D', value: '28 IU per mg' },
     ],
   },
 ];
@@ -1086,47 +1104,47 @@ export const OYSTER_MUSHROOM: Mushroom[] = [
   {
     id: 1,
     name: 'Black Oyster',
-    imageUrl: 'https://images2.imgbox.com/0f/f8/14OZcZEQ_o.jpg',
+    imageUrl: require('../assets/icon.png'),
   },
   {
     id: 2,
     name: 'Blue Oyster',
-    imageUrl: 'https://images2.imgbox.com/e1/b8/cwSm9Jdj_o.jpg',
+    imageUrl: require('../assets/icon.png'),
   },
   {
     id: 3,
     name: 'Elm Oyster',
-    imageUrl: 'https://images2.imgbox.com/7a/db/6s2I1lKT_o.jpg',
+    imageUrl: require('../assets/icon.png'),
   },
   {
     id: 4,
     name: 'Golden Oyster',
-    imageUrl: 'https://images2.imgbox.com/67/3d/4aWerZpY_o.jpg',
+    imageUrl: require('../assets/icon.png'),
   },
   {
     id: 5,
     name: 'Grey Oyster',
-    imageUrl: 'https://images2.imgbox.com/98/4b/kMGGYMCQ_o.jpg',
+    imageUrl: require('../assets/icon.png'),
   },
   {
     id: 6,
     name: 'King Oyster',
-    imageUrl: 'https://images2.imgbox.com/d9/7a/eXrs5yth_o.jpg',
+    imageUrl: require('../assets/icon.png'),
   },
   {
     id: 7,
     name: 'Pearl Oyster',
-    imageUrl: 'https://images2.imgbox.com/e7/12/QvyvmRwS_o.jpg',
+    imageUrl: require('../assets/icon.png'),
   },
   {
     id: 8,
     name: 'Phoenix Oyster',
-    imageUrl: 'https://images2.imgbox.com/24/3f/Os3Dles8_o.jpg',
+    imageUrl: require('../assets/icon.png'),
   },
   {
     id: 9,
     name: 'Pink Oyster',
-    imageUrl: 'https://images2.imgbox.com/49/d3/ZVswBjAN_o.png',
+    imageUrl: require('../assets/icon.png'),
   },
 ];
 
@@ -1503,7 +1521,7 @@ export const CONTACT_ITEMS: ContactUs[] = [
   },
   {
     name: 'Amartya Ghosh',
-    designation: 'B.Tech CSE Student | AI/ML Enthusiast',
+    designation: 'B.Tech CSE Student | AI Developer',
     contact: '7093854769',
     email: 'amartyaghosh40@gmail.com',
   },
@@ -1621,7 +1639,7 @@ export const RECIPE_ITEMS: RecipeItems[] = [
   {
     id: 1,
     title: 'Syrwa Tit / Meghalaya Mushroom Soup',
-    imageUrl: 'https://i.ibb.co/mR494c0/meghalaya-mushroom-soup.jpg',
+    imageUrl: require('../assets/Recipes/Syrwa_Tit.png'),
     ingredients: [
       '1 cup Mushrooms roughly chopped',
       '12 small cloves of garlic',
@@ -1646,7 +1664,7 @@ export const RECIPE_ITEMS: RecipeItems[] = [
   {
     id: 2,
     title: 'Butter Garlic Mushroom',
-    imageUrl: 'https://i.ibb.co/68dDk6b/butter-garlic-mushroom.jpg',
+    imageUrl: require('../assets/Recipes/butter_garlic.png'),
     ingredients: [
       'White button mushrooms - 200g fresh, white and small',
       'Butter - 1 tsp',
@@ -1668,7 +1686,7 @@ export const RECIPE_ITEMS: RecipeItems[] = [
   {
     id: 3,
     title: 'Oyster Mushroom Curry',
-    imageUrl: 'https://i.ibb.co/4gQwbCs/oyster-mushroom-curry.jpg',
+    imageUrl: require('../assets/Recipes/Oyster_mushroom_curry.png'),
     ingredients: [
       'Oyster Mushrooms - 200 grams',
       'Cooking oil',
@@ -1697,7 +1715,7 @@ export const RECIPE_ITEMS: RecipeItems[] = [
   {
     id: 4,
     title: 'Tit Jadoh/Mushroom Rice',
-    imageUrl: 'https://i.ibb.co/WxLGh3g/tit-jadoh.jpg',
+    imageUrl: require('../assets/Recipes/jadoh.png'),
     ingredients: [
       'Oil',
       'Oyster mushroom',
@@ -1725,7 +1743,7 @@ export const RECIPE_ITEMS: RecipeItems[] = [
   {
     id: 5,
     title: 'Shiitake Pork Mushroom',
-    imageUrl: 'https://i.ibb.co/g6PZQVf/shiitake-pork-mushroom.jpg',
+    imageUrl: require('../assets/Recipes/Shiitake_pork_mushroom.png'),
     ingredients: [
       'Mushroom 500 grams',
       'Pork 500 grams',
@@ -1761,3 +1779,4 @@ export const BG_IMG = 'https://i.ibb.co/ygBrf3q/bg.png';
 export const LOGO_IMG = 'https://i.ibb.co/SnZnkzG/logo.png';
 export const CAU_IMG = 'https://i.ibb.co/3sPwCyL/cau.png';
 export const NITM_IMG = 'https://i.ibb.co/kXsRWGp/NITM.png';
+

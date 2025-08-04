@@ -11,7 +11,7 @@ const TreatmentScreen: React.FC = () => {
   // Define the treatments object with explicit types
   const treatments: Record<string, string> = {
     'Bacterial blotch': `
-1. Bacterial Blotch of Mushroom
+⭕ Bacterial Blotch of Mushroom
 
 Common Names: Bacterial blotch, Brown blotch
 Causal organism: Pseudomonas fluorescens, P. tolaasii
@@ -40,7 +40,7 @@ Chemical Treatment:
 - Application of Terramycin (9 mg per square foot), Streptomycin (200 ppm), oxytetracycline (300 ppm), Kasugamycin, and Kanamycin has been found effective in managing the disease.
     `,
     'Coweb': `
-2. Cobweb
+⭕ Cobweb
 
 Causal organism: Cladobotryum dendroides
 Common Name: Cobweb, Mildew, Soft decay, Hypomyces mildew disease, Dactylium disease
@@ -79,7 +79,7 @@ Chemical Treatment:
 - A single application of Prochloraz (Sporgon 50WP) at 1.5g a.i./m² of bed 9 days after casing slows down cobweb growth in the substrate.
     `,
     'Dry Bubble': `
-3. Dry Bubble
+⭕ Dry Bubble
 
 Causal organism: Verticillium fungicola
 Common Name: Verticillium disease, brown spot, fungus spot, dry bubble, La mole
@@ -131,7 +131,7 @@ Chemical Control:
 - Cased beds can also be treated with 0.5% Formalin or 100g Carbendazim, 150g Benomyl, or 200g Thiophanate Methyl in 100-150 litres of water per m² of bed.
     `,
     'Wet bubble': `
-4. Wet Bubble
+⭕ Wet Bubble
 
 Causal Organism: Mycogyne perniciosa
 Common Names: Wet bubble, La mole, white mould, bubble, Mycogone disease
@@ -161,7 +161,7 @@ Chemical Treatment:
 - Fumigate empty rooms with 2% Formalin.
     `,
     'Green Mold': `
-5. Green Mold
+⭕ Green Mold
 
 Causal organism: Trichoderma sp.
 Common names: Trichoderma spot, Trichoderma blotch, Trichoderma mildew, green mould
@@ -194,7 +194,7 @@ Chemical Control:
 - Weekly sprays of Bavistin (0.1%), Zineb dust, or Calcium hypochlorite (15%) are effective in controlling the disease.
     `,
     'Inky cap': `
-6. Inky Caps
+⭕ Inky Caps
 
 Causal organism: Copernicus spp.
 Inky caps are fungi that are weed mushrooms. They appear on mushroom beds before mushroom fruiting. The presence of Inky caps indicates a high content of nitrogen in the compost. Also, their presence indicates low-quality substrate.

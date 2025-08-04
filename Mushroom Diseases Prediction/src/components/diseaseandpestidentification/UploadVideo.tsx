@@ -28,21 +28,71 @@ const UploadAndProcessVideo: React.FC = () => {
   const [downloading, setDownloading] = useState<boolean>(false);
   const [downloadedFilePath, setDownloadedFilePath] = useState<string | null>(null);
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+  
+  // State for hidden video duration check
+  const [checkingDuration, setCheckingDuration] = useState<boolean>(false);
+  const [tempVideoUri, setTempVideoUri] = useState<string | null>(null);
+  const [tempAsset, setTempAsset] = useState<any>(null);
+
+  // Check video duration using a hidden Video component
+  const handleVideoDurationCheck = (data: any, asset: any) => {
+    // console.log('Video duration check:', data.duration, 'seconds');
+    
+    if (data.duration && data.duration > 30) {
+      Alert.alert(
+        'Video Too Long', 
+        `This video is ${Math.round(data.duration)} seconds long. Please select a video that is 30 seconds or shorter.`,
+        [{ text: 'OK' }]
+      );
+      setCheckingDuration(false);
+      setTempVideoUri(null);
+      setTempAsset(null);
+      return;
+    }
+    
+    // Duration is acceptable, proceed with upload
+    setCheckingDuration(false);
+    setTempVideoUri(null);
+    setTempAsset(null);
+    setSelectedVideo(asset.uri || null);
+    setProcessedVideoPath(null);
+    setDownloadedFilePath(null);
+    setDetectedClasses([]);
+    uploadAndProcessVideo(asset);
+  };
 
   // Select Video from Gallery
   const handleSelectVideo = () => {
     launchImageLibrary({ mediaType: 'video' }, result => {
       if (result.didCancel) {
-        console.log('User cancelled video selection');
+        // console.log('User cancelled video selection');
       } else if (result.errorCode) {
-        console.log('Gallery Error:', result.errorMessage);
+        // console.log('Gallery Error:', result.errorMessage);
       } else if (result.assets && result.assets.length > 0) {
         const asset = result.assets[0];
-        setSelectedVideo(asset.uri || null);
-        setProcessedVideoPath(null);
-        setDownloadedFilePath(null);
-        setDetectedClasses([]); // Reset detected classes
-        uploadAndProcessVideo(asset);
+        // console.log('Selected video asset:', asset);
+        
+        // Check if video duration is provided by the library (unlikely for gallery)
+        if (asset.duration && asset.duration > 30000) { // duration is in milliseconds
+          Alert.alert(
+            'Video Too Long', 
+            `This video is ${Math.round(asset.duration / 1000)} seconds long. Please select a video that is 30 seconds or shorter.`,
+            [{ text: 'OK' }]
+          );
+          return;
+        }
+
+        // Always use Video component to check duration for gallery videos
+        if (asset.uri) {
+          setCheckingDuration(true);
+          setTempVideoUri(asset.uri);
+          setTempAsset(asset);
+          // The duration check will be handled by the hidden Video component's onLoad
+          return;
+        }
+
+        // Fallback - should not reach here normally
+        Alert.alert('Error', 'Could not access the selected video.');
       }
     });
   };
@@ -106,18 +156,18 @@ const UploadAndProcessVideo: React.FC = () => {
 
       if (result.statusCode === 200) {
         if (Platform.OS === 'android' && Number(Platform.Version) >= 30) {
-          Alert.alert('Success', 'Video downloaded! Check your downloads folder.');
+          Alert.alert('Success', 'Video downloaded! Check your Gallery.');
         } else {
           await RNFS.moveFile(downloadDest, `${RNFS.PicturesDirectoryPath}/${fileName}`);
           Alert.alert('Success', 'Video saved to gallery!');
         }
         setDownloadedFilePath(downloadDest);
       } else {
-        Alert.alert('Error', 'Failed to download the video.');
+        Alert.alert('Error', 'Failed to download the video.Android version incompatible.');
       }
     } catch (error) {
       console.error('Error downloading the video:', error);
-      Alert.alert('Error', 'Failed to download the video.');
+      Alert.alert('Error', 'Failed to download the video.Android version incompatible.');
     } finally {
       setDownloading(false);
     }
@@ -132,15 +182,47 @@ const UploadAndProcessVideo: React.FC = () => {
 
   return (
     <ImageBackground
-      source={require('./../../assets/backgroundsss.jpg')}
+      source={require('./../../assets/Know_your_Mushroom/craterellusodoratus.png')}
       style={styles.background}
       imageStyle={{ marginLeft: -350 }}>
       <ScrollView contentContainerStyle={styles.container}>
+        <Text style={styles.instructionText}>Video duration must be under 30 seconds</Text>
         <TouchableOpacity style={styles.button} onPress={handleSelectVideo}>
           <Text style={styles.buttonText}>Select Video from Gallery</Text>
         </TouchableOpacity>
 
         {loading && <ActivityIndicator size="large" color="#FFFFFF" style={styles.spinner} />}
+
+        {checkingDuration && (
+          <View style={styles.checkingContainer}>
+            <ActivityIndicator size="large" color="#FFFFFF" />
+            <Text style={styles.checkingText}>Checking video duration...</Text>
+          </View>
+        )}
+
+        {/* Hidden video component for duration checking */}
+        {tempVideoUri && tempAsset && (
+          <Video
+            source={{ uri: tempVideoUri }}
+            style={{ width: 0, height: 0, position: 'absolute' }}
+            paused={true}
+            onLoad={(data) => {
+              // console.log('Video loaded with data:', data);
+              handleVideoDurationCheck(data, tempAsset);
+            }}
+            onError={(error) => {
+              // console.log('Error checking video duration:', error);
+              Alert.alert(
+                'Error', 
+                'Could not check video duration. Please try selecting a different video.',
+                [{ text: 'OK' }]
+              );
+              setCheckingDuration(false);
+              setTempVideoUri(null);
+              setTempAsset(null);
+            }}
+          />
+        )}
 
         {processedVideoPath && (
           <>
@@ -235,6 +317,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonText: { color: '#FFFFFF', fontSize: 16, fontWeight: 'bold' },
+  instructionText: { 
+    color: '#FFFFFF', 
+    fontSize: 18, 
+    fontWeight: 'bold', 
+    textAlign: 'center', 
+    marginBottom: 20,
+    paddingHorizontal: 20 
+  },
   closeButton: {
     backgroundColor: '#673AB7',
     paddingVertical: 12,
@@ -243,6 +333,15 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   spinner: { marginTop: 20 },
+  checkingContainer: { 
+    marginTop: 20, 
+    alignItems: 'center' 
+  },
+  checkingText: { 
+    color: '#FFFFFF', 
+    marginTop: 10, 
+    fontSize: 14 
+  },
   detectionContainer: { marginTop: 20, paddingHorizontal: 20 },
   detectionTitle: { fontWeight: 'bold', fontSize: 16, color: '#FFFFFF' },
   detectionText: { fontSize: 14, marginTop: 5, color: '#FFFFFF' },

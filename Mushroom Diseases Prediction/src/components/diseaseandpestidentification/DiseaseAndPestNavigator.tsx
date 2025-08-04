@@ -18,50 +18,68 @@ function DiseaseAndPestStackScreen() {
         <DiseaseAndPestNavigatorStack.Screen
           name="Home"
           component={HomeScreen}
-          options={{
-            headerShown: true,
-            title: 'Diseases Identification - Home',
-          }}
+  options={{
+    headerTransparent: true,
+    headerTitle: '', // Remove title
+    headerBackTitleVisible: false,
+    headerTintColor: 'white', // Make back button white
+  }}
+
         />
         <DiseaseAndPestNavigatorStack.Screen
           name="UploadPhoto"
           component={UploadPhoto}
-          options={{
-            headerShown: true,
-            title: 'Diseases Identification - UploadPhoto',
-          }}
+   options={{
+    headerTransparent: true,
+    headerTitle: '', // Remove title
+    headerBackTitleVisible: false,
+    headerTintColor: 'white', // Make back button white
+  }}
+
         />
         <DiseaseAndPestNavigatorStack.Screen
           name="Camera"
           component={Camera}
-          options={{
-            headerShown: true,
-            title: 'Diseases Identification - Camera',
-          }}
+  options={{
+    headerTransparent: true,
+    headerTitle: '', // Remove title
+    headerBackTitleVisible: false,
+    headerTintColor: 'white', // Make back button white
+  }}
+
         />
         <DiseaseAndPestNavigatorStack.Screen
           name="UploadVideo"
           component={UploadVideo}
-          options={{
-            headerShown: true,
-            title: 'Diseases Identification - UploadVideo',
-          }}
+  options={{
+    headerTransparent: true,
+    headerTitle: '', // Remove title
+    headerBackTitleVisible: false,
+    headerTintColor: 'white', // Make back button white
+  }}
+
         />
         <DiseaseAndPestNavigatorStack.Screen
           name="VideoRecording"
           component={VideoRecording}
-          options={{
-            headerShown: true,
-            title: 'Diseases Identification - Video Recording',
-          }}
+  options={{
+    headerTransparent: true,
+    headerTitle: '', // Remove title
+    headerBackTitleVisible: false,
+    headerTintColor: 'white', // Make back button white
+  }}
+
         />
         <DiseaseAndPestNavigatorStack.Screen
           name="Treatment"
           component={TreatmentScreen}
-          options={{
-            headerShown: true,
-            title: 'Treatment',
-          }}
+  options={{
+    headerTransparent: true,
+    headerTitle: '', // Remove title
+    headerBackTitleVisible: false,
+    headerTintColor: 'white', // Make back button white
+  }}
+
         />
       </DiseaseAndPestNavigatorStack.Navigator>
     </NavigationContainer>

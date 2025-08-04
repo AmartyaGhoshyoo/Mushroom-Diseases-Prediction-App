@@ -67,17 +67,22 @@ const App = (): React.JSX.Element => {
         <Stack.Screen
           name="Home"
           component={Home}
-          options={{
-            title: 'Mushroom Mentor',
-            headerBackVisible: false,
-          }}
+  options={{
+    headerTransparent: true,
+    headerTitle: '', // Remove title
+    headerBackTitleVisible: false,
+    headerTintColor: 'white', // Make back button white
+  }}
         />
         <Stack.Screen
           name="KnowMushrooms"
           component={KnowMushrooms}
-          options={{
-            title: 'Know your Mushroom',
-          }}
+  options={{
+    headerTransparent: true,
+    headerTitle: '', // Remove title
+    headerBackTitleVisible: false,
+    headerTintColor: 'white', // Make back button white
+  }}
         />
         <Stack.Screen
           name="MushroomList"
@@ -96,16 +101,22 @@ const App = (): React.JSX.Element => {
         <Stack.Screen
           name="ProductionTechList"
           component={ProductionTechList}
-          options={{
-            title: 'Production Techniques',
-          }}
+  options={{
+    headerTransparent: true,
+    headerTitle: '', // Remove title
+    headerBackTitleVisible: false,
+    headerTintColor: 'white', // Make back button white
+  }}
         />
         <Stack.Screen
           name="ProductionTech"
           component={ProductionTech}
-          options={{
-            title: 'Production Technology',
-          }}
+  options={{
+    headerTransparent: true,
+    headerTitle: '', // Remove title
+    headerBackTitleVisible: false,
+    headerTintColor: 'white', // Make back button white
+  }}
         />
         <Stack.Screen
           name="CultivationTech"
@@ -125,22 +136,22 @@ const App = (): React.JSX.Element => {
         <Stack.Screen
           name="NutritionalValue"
           component={NutritionalValue}
-          options={{
-            title: 'Nutritional & medicinal property',
-            headerTitleStyle: {
-              fontSize: 18,
-            },
-          }}
+  options={{
+    headerTransparent: true,
+    headerTitle: '', // Remove title
+    headerBackTitleVisible: false,
+    headerTintColor: 'white', // Make back button white
+  }}
         />
         <Stack.Screen
           name="NutritionDetails"
           component={NutritionDetails}
-          options={{
-            title: 'Nutritional Details',
-            headerTitleStyle: {
-              fontSize: 18,
-            },
-          }}
+  options={{
+    headerTransparent: true,
+    headerTitle: '', // Remove title
+    headerBackTitleVisible: false,
+    headerTintColor: 'white', // Make back button white
+  }}
         />
         <Stack.Screen
           name="GovernmentSchemes"
@@ -159,9 +170,12 @@ const App = (): React.JSX.Element => {
         <Stack.Screen
           name="Recipes"
           component={Recipes}
-          options={{
-            title: 'Mushroom Recipes List',
-          }}
+    options={{
+    headerTransparent: true,
+    headerTitle: '', // Remove title
+    headerBackTitleVisible: false,
+    headerTintColor: 'white', // Make back button white
+  }}
         />
         <Stack.Screen
           name="RecipeItem"

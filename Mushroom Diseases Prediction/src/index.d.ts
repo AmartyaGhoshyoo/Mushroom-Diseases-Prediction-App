@@ -29,12 +29,22 @@ interface RequiredMaterial {
   materialUri: string;
 }
 
+// In your types file (e.g., types/index.ts or wherever CultivationStep is defined)
+
 interface CultivationStep {
-  name: string;
+  name?: string;
   desc?: string[];
-  imageUri?: string[];
   types?: CultivationStep[];
+  // Fixed to handle undefined values in the array
+  imageUri?: string | Array<string | { img: any; label: string } | undefined>;
 }
+
+// If you can't modify the original type, create a new one
+interface ExtendedCultivationStep extends CultivationStep {
+  imageUri?: string | Array<string | { img: any; label: string }>;
+}
+
+// Then use ExtendedCultivationStep instead of CultivationStep in your component
 
 interface ProductionTech {
   name: string;
