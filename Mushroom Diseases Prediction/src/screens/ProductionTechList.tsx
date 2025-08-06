@@ -34,7 +34,7 @@ const ProductionTechList = ({navigation, route}: ProductionTechListProps) => {
       <View style={styles.overlay} />
       
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>🌿 Production Techniques</Text>
+        <Text style={styles.headerTitle}>🌿 Production Technology</Text>
         <Text style={styles.headerSubtitle}>
           Learn advanced cultivation methods
         </Text>

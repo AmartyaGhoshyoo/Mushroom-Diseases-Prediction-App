@@ -370,10 +370,90 @@ export const OYSTER_PRODUCTION_TECH: ProductionTech = {
     },
   ],
   cultivationTech: [
-    {
-      name: 'Preparation or procurement of spawn',
-      imageUri: [{img: require('../assets/Production_oyster/PPSsubstrate-preparation.jpg'),label:'Substrate Preparation'},
-  ]},
+       {
+      name: 'Preparation of spawn',
+      desc: [
+        'Spawn refers to seed or planting material of mushroom.',
+        'Quality spawn is devoid of contamination and has higher yield potential.',
+        'Spawn consists of mycelia of mushroom multiplied on suitable substrate like cereal grains in sterile condition.',
+        "Since the mycelia of mushroom can't be multiplied as such, suitable cereal grain like wheat, maize, jowar etc. is required.",
+      ],
+      types: [
+        {
+          name: 'Spawn production',
+          desc: [
+            'Production of spawn requires special technical skills and a laboratory.',
+            'Basic steps in spawn production includes:',
+          ],
+          types: [
+            {
+              name: 'Pure culture preparation',
+              desc: [
+                'Pure culture can be obtained either by spore culture or tissue culture.',
+                'Mushrooms bear spores, but all spores are not vigorous and the pure cultures obtained, shows variation due to genetics.',
+                'In tissue culture, a well grown mushroom fruiting body is collected (usually from the first flush harvest).',
+                'The fruiting body is longitudinally split open into two halves. A small bit of tissue from the inside of the junction area of the pileus/cap which is uncontaminated is taken aseptically with forceps and placed over potato dextrose agar (PDA) or malt extract agar (MEA) media in slants or petri plates.',
+                'Ideally, this process done inside a still-air transfer chamber or a laminar flow hood to avoid airborne contamination.',
+                "These are incubated at 25±2°C. After a week's time the tissue generates mycelium which cover up the entire media surface and the cultures become ready.",
+                'The first-generation pure culture prepared from mushroom fruit body tissue is called mother culture.',
+              ],
+              imageUri: [
+  { img: require('../assets/ProductionButton/SPtissue-taken-out-for-mother-culture-1.jpg'), label: 'tissue taken out for mother culture-1' },
+  { img: require('../assets/ProductionButton/SPtissue-taken-out-for-mother-culture-2.jpg'), label: 'tissue taken out for mother culture-2' },
+
+              ],
+            },
+            {
+              name: 'Mother Spawn preparation',
+              desc: [
+                'Base material/carrier: Jowar (sorghum) and bajra (pearl millet) are considered best as spawn substrate, while wheat is the next best cereal. In Meghalaya, wheat is not readily available.',
+                'Maize grains are also abundantly available in the hilly areas and serve as very good base material. Maize grain is one of the best substrates to be used for mother spawn production. However, maize grains are not preferred for planting spawn due to bigger size and less surface area.',
+                'The suitable substrate is prepared by cleaning, washing and soaking overnight. The grains are then boiled to make the grains soft.',
+                'To drain off the excess water, the grains are kept in a sieve and allowed to dry. After that, 20g pharmaceutical grade calcium carbonate (CaCO3) is mixed with per kg of the cereal grain. The grains are coated with CaCO3 to raise the pH above 7; to accelerate the growth of the spawn.',
+                'The processed substrate is either filled in polypropylene spawn bags or glass jars. The open end of the bags is plugged with non-absorbent cotton plugs.',
+                'The filled bags are then sterilized in an autoclave at 121oC (15 lb pressure/sq. inches) for about 1-1½ h.',
+                'After autoclaving the bags/jars are taken out, cooled and inoculated with mushroom culture. Inoculation is carried out in Laminar air flow, in a totally sterile condition.',
+                'After inoculation, the bottles are incubated at 25°C for 2-3 weeks when the mushroom mycelium fully colonizes (covers) the wheat grains. This is the first generation of grain spawn prepared using culture grown in test tube and is referred to as Mother Spawn',
+                'The mother and planting spawn should be properly labelled with the species name, generation and date. Spawn of fifteen to twenty days old is the best for planting.',
+              ],
+              imageUri: [
+  { img: require('../assets/ProductionButton/SPsoaking-of-substrate.jpg'), label: 'soaking of substrate.jpg' },
+  { img: require('../assets/ProductionButton/SPplugging-substrate-with-non-absorbent-cotton.jpg'), label: 'plugging substrate with non absorbent cotton' },
+  { img: require('../assets/ProductionButton/SPautoclaving-grains-to-sterilize.jpg'), label: 'autoclaving grains to sterilize.jpg' },
+  { img: require('../assets/ProductionButton/SPinoculation-of-substrate-with-mother-culture.jpg'), label: 'inoculation of substrate with mother culture' },
+],
+            },
+            {
+              name: 'Spawn multiplication',
+              desc: [
+                'For multiplication, mother spawn is used to make commercial spawn which is prepared in polypropylene (PP) bags.',
+                'Few grains of readymade mother spawn are added in each bag. It is not recommended to multiply spawn to spawn beyond two generations.',
+                'These are then incubated for 3 weeks. In between the bags are inspected for any contamination.',
+              ],
+              imageUri: [
+  { img: require('../assets/ProductionButton/SPspawn-in-pp-bags.jpg'), label: 'spawn in pp bags' },
+  { img: require('../assets/ProductionButton/SPstorage-of-spawn.jpg'), label: 'storage of spawn' },],
+            },
+          ],
+
+          imageUri: [
+],
+        },
+        {
+          name: 'Storage',
+          desc: [
+            'Spawns can be stored at temperature of 25±2ºC or at room temperature for up to 30 days, from the date of inoculation.',
+            'Under refrigerator conditions, spawn can be stored for another 3 months. However, there will be some decrease in yield of mushroom with increased storage time above 2 months',
+            'The factors like excess moisture in the grains, bad quality grains, improper sterilization and high temperature during storage contribute to spoilage of spawn.',
+            'A good spawn is white in colour with profuse mycelia run and without any speck or blemish.',
+          ],
+          imageUri: [  
+],
+        },
+      ],
+      imageUri: [
+          { img: require('../assets/ProductionButton/SPmushrrom-spawn.jpg'), label: 'mushrrom spawn' },],
+    },
     {
       name: 'Substrate selection and preparation',
       desc: [],
@@ -652,7 +732,7 @@ export const BUTTON_PRODUCTION_TECH: ProductionTech = {
     },
     {
       material: 'Spawn mixing and filling tools',
-      materialUri:  require('../assets/ProductionButton/spawn_mixing.jpg'),
+      materialUri:  require('../assets/ProductionButton/spawn.jpg'),
     },
   ],
   cultivationTech: [
