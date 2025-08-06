@@ -11,16 +11,17 @@ import {
   Image,
   ImageBackground,
   Platform,
+  PermissionsAndroid,
 } from 'react-native';
 import { launchCamera } from 'react-native-image-picker';
 import RNFS from 'react-native-fs';
 import { ExternalConfig } from './ExternalConfig';
-import { useNavigation } from '@react-navigation/native'; // Import useNavigation
-import { RootStackParamList } from './navigation/types'; // Import RootStackParamList
-import { NativeStackNavigationProp } from '@react-navigation/native-stack'; // Import NativeStackNavigationProp
+import { useNavigation } from '@react-navigation/native';
+import { RootStackParamList } from './navigation/types';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 const CaptureAndUploadImage: React.FC = () => {
-  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>(); // Initialize navigation
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const [capturedImage, setCapturedImage] = useState<string | null>(null);
   const [processedImagePath, setProcessedImagePath] = useState<string | null>(null);
   const [detectedClasses, setDetectedClasses] = useState<string[]>([]);
@@ -29,7 +30,6 @@ const CaptureAndUploadImage: React.FC = () => {
   const [downloadedFilePath, setDownloadedFilePath] = useState<string | null>(null);
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
 
-  // Capture Image from Camera
   const handleCaptureImage = () => {
     launchCamera({ mediaType: 'photo', cameraType: 'back' }, result => {
       if (result.didCancel) {
@@ -47,7 +47,6 @@ const CaptureAndUploadImage: React.FC = () => {
     });
   };
 
-  // Upload and Process Image
   const uploadAndProcessImage = async (asset: any) => {
     if (!asset.uri) {
       Alert.alert('Error', 'No URI found for the captured image.');
@@ -85,10 +84,38 @@ const CaptureAndUploadImage: React.FC = () => {
     }
   };
 
-  // Download and Save Image to Gallery
+  // ✅ NEW: Request storage permission for Android < 10
+  const requestStoragePermission = async (): Promise<boolean> => {
+    if (Platform.OS === 'android' && Platform.Version < 29) {
+      try {
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+          {
+            title: 'Storage Permission Required',
+            message: 'App needs access to your storage to save images',
+            buttonNeutral: 'Ask Me Later',
+            buttonNegative: 'Cancel',
+            buttonPositive: 'OK',
+          }
+        );
+        return granted === PermissionsAndroid.RESULTS.GRANTED;
+      } catch (err) {
+        console.warn(err);
+        return false;
+      }
+    }
+    return true; // Permission not needed on Android 10+ or iOS
+  };
+
   const downloadImageToGallery = async () => {
     if (!processedImagePath) {
       Alert.alert('Error', 'No image available to download.');
+      return;
+    }
+
+    const hasPermission = await requestStoragePermission();
+    if (!hasPermission) {
+      Alert.alert('Permission Denied', 'Storage permission is required to save the image.');
       return;
     }
 
@@ -106,18 +133,19 @@ const CaptureAndUploadImage: React.FC = () => {
 
       if (result.statusCode === 200) {
         if (Platform.OS === 'android' && Number(Platform.Version) >= 30) {
-          Alert.alert('Success', 'Image downloaded! Check your Gallery.');
+          Alert.alert('Success', 'Image downloaded! Check your Downloads or Gallery.');
         } else {
-          await RNFS.moveFile(downloadDest, `${RNFS.PicturesDirectoryPath}/${fileName}`);
-          Alert.alert('Success', 'Image saved to gallery!');
+          const picturePath = `${RNFS.PicturesDirectoryPath}/${fileName}`;
+          await RNFS.moveFile(downloadDest, picturePath);
+          Alert.alert('Success', 'Image saved to Gallery!');
         }
         setDownloadedFilePath(downloadDest);
       } else {
-        Alert.alert('Error', 'Failed to download the image.Android version incompatible.');
+        Alert.alert('Error', 'Failed to download the image.');
       }
     } catch (error) {
       console.error('Error downloading the image:', error);
-      Alert.alert('Error', 'Failed to download the image.Android version incompatible.');
+      Alert.alert('Error', 'Download failed. Please check your Android version or permissions.');
     } finally {
       setDownloading(false);
     }
@@ -125,9 +153,8 @@ const CaptureAndUploadImage: React.FC = () => {
 
   const closeImageModal = () => setIsModalVisible(false);
 
-  // Function to handle navigation to the Treatment screen
   const handleTreatmentPress = (disease: string) => {
-    navigation.navigate('Treatment', { disease }); // Navigate to Treatment screen with disease parameter
+    navigation.navigate('Treatment', { disease });
   };
 
   return (
@@ -169,7 +196,9 @@ const CaptureAndUploadImage: React.FC = () => {
                 <Text style={styles.detectionText}>
                   {index + 1}. {item}
                 </Text>
-                <TouchableOpacity style={styles.treatmentButton} onPress={() => handleTreatmentPress(item)}>
+                <TouchableOpacity
+                  style={styles.treatmentButton}
+                  onPress={() => handleTreatmentPress(item)}>
                   <Text style={styles.treatmentButtonText}>Treatment</Text>
                 </TouchableOpacity>
               </View>
