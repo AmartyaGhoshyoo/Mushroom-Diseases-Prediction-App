@@ -133,19 +133,25 @@ const CaptureAndUploadImage: React.FC = () => {
 
       if (result.statusCode === 200) {
         if (Platform.OS === 'android' && Number(Platform.Version) >= 30) {
-          Alert.alert('Success', 'Image downloaded! Check your Downloads or Gallery.');
-        } else {
-          const picturePath = `${RNFS.PicturesDirectoryPath}/${fileName}`;
-          await RNFS.moveFile(downloadDest, picturePath);
           Alert.alert('Success', 'Image saved to Gallery!');
+        } else {
+          // For Android versions < 30 (including < 10)
+          try {
+            const picturePath = `${RNFS.PicturesDirectoryPath}/${fileName}`;
+            await RNFS.moveFile(downloadDest, picturePath);
+            Alert.alert('Success', 'Image saved to Gallery!');
+          } catch (moveError) {
+            console.error('Error moving file to Pictures directory:', moveError);
+            Alert.alert('Error', 'Failed to save image to Gallery.');
+          }
         }
         setDownloadedFilePath(downloadDest);
       } else {
-        Alert.alert('Error', 'Failed to download the image.');
+        Alert.alert('Error', 'Download failed.');
       }
     } catch (error) {
       console.error('Error downloading the image:', error);
-      Alert.alert('Error', 'Download failed. Please check your Android version or permissions.');
+      Alert.alert('Error', 'Download failed.');
     } finally {
       setDownloading(false);
     }

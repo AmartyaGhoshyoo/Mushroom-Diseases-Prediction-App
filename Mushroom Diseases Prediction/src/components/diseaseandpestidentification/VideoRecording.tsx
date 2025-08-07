@@ -10,6 +10,7 @@ import {
   Modal,
   ImageBackground,
   Platform,
+  PermissionsAndroid,
 } from 'react-native';
 import { launchCamera } from 'react-native-image-picker';
 import RNFS from 'react-native-fs';
@@ -35,10 +36,10 @@ const CaptureAndUploadVideo: React.FC = () => {
 
   // Check video duration using a hidden Video component
   const handleVideoDurationCheck = (data: any, asset: any) => {
-    if (data.duration > 30) {
+    if (data.duration > 15) {
       Alert.alert(
         'Video Too Long', 
-        'Please record a video that is 30 seconds or shorter.',
+        'Please record a video that is 15 seconds or shorter.',
         [{ text: 'OK' }]
       );
       setCheckingDuration(false);
@@ -63,7 +64,7 @@ const CaptureAndUploadVideo: React.FC = () => {
         mediaType: 'video', 
         cameraType: 'back',
         videoQuality: 'medium', // Optional: set video quality
-        durationLimit: 30, // Set duration limit to 30 seconds
+        durationLimit: 15, // Set duration limit to 15 seconds
       }, 
       (result) => {
         if (result.didCancel) {
@@ -74,10 +75,10 @@ const CaptureAndUploadVideo: React.FC = () => {
           const asset = result.assets[0];
           
           // Check if video duration is provided by the camera
-          if (asset.duration && asset.duration > 30000) { // duration is in milliseconds
+          if (asset.duration && asset.duration > 15000) { // duration is in milliseconds
             Alert.alert(
               'Video Too Long', 
-              'Please record a video that is 30 seconds or shorter.',
+              'Please record a video that is 15 seconds or shorter.',
               [{ text: 'OK' }]
             );
             return;
@@ -140,10 +141,39 @@ const CaptureAndUploadVideo: React.FC = () => {
     }
   };
 
+  // ✅ NEW: Request storage permission for Android < 10
+  const requestStoragePermission = async (): Promise<boolean> => {
+    if (Platform.OS === 'android' && Platform.Version < 29) {
+      try {
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+          {
+            title: 'Storage Permission Required',
+            message: 'App needs access to your storage to save videos',
+            buttonNeutral: 'Ask Me Later',
+            buttonNegative: 'Cancel',
+            buttonPositive: 'OK',
+          }
+        );
+        return granted === PermissionsAndroid.RESULTS.GRANTED;
+      } catch (err) {
+        console.warn(err);
+        return false;
+      }
+    }
+    return true; // Permission not needed on Android 10+ or iOS
+  };
+
   // Download and Save Video to Gallery
   const downloadVideoToGallery = async () => {
     if (!processedVideoPath) {
       Alert.alert('Error', 'No video available to download.');
+      return;
+    }
+
+    const hasPermission = await requestStoragePermission();
+    if (!hasPermission) {
+      Alert.alert('Permission Denied', 'Storage permission is required to save the video.');
       return;
     }
 
@@ -161,18 +191,25 @@ const CaptureAndUploadVideo: React.FC = () => {
 
       if (result.statusCode === 200) {
         if (Platform.OS === 'android' && Number(Platform.Version) >= 30) {
-          Alert.alert('Success', 'Video downloaded! Check your Gallery.');
-        } else {
-          await RNFS.moveFile(downloadDest, `${RNFS.PicturesDirectoryPath}/${fileName}`);
           Alert.alert('Success', 'Video saved to gallery!');
+        } else {
+          // For Android versions < 30 (including < 10)
+          try {
+            const picturePath = `${RNFS.PicturesDirectoryPath}/${fileName}`;
+            await RNFS.moveFile(downloadDest, picturePath);
+            Alert.alert('Success', 'Video saved to gallery!');
+          } catch (moveError) {
+            console.error('Error moving file to Pictures directory:', moveError);
+            Alert.alert('Error', 'Failed to save video to gallery.');
+          }
         }
         setDownloadedFilePath(downloadDest);
       } else {
-        Alert.alert('Error', 'Failed to download the video.Android version incompatible.');
+        Alert.alert('Error', 'Download failed.');
       }
     } catch (error) {
       console.error('Error downloading the video:', error);
-      Alert.alert('Error', 'Failed to download the video.Android version incompatible.');
+      Alert.alert('Error', 'Download failed.');
     } finally {
       setDownloading(false);
     }
@@ -191,9 +228,9 @@ const CaptureAndUploadVideo: React.FC = () => {
       style={styles.background}
       imageStyle={{ marginRight: -50 }}>
       <ScrollView contentContainerStyle={styles.container}>
-        <Text style={styles.instructionText}>Video duration must be under 30 seconds</Text>
+        <Text style={styles.instructionText}>Video duration must be under 15 seconds</Text>
         <TouchableOpacity style={styles.button} onPress={handleRecordVideo}>
-          <Text style={styles.buttonText}>Record Video (Max 30s)</Text>
+          <Text style={styles.buttonText}>Record Video (Max 15s)</Text>
         </TouchableOpacity>
 
         {loading && <ActivityIndicator size="large" color="#FFFFFF" style={styles.spinner} />}

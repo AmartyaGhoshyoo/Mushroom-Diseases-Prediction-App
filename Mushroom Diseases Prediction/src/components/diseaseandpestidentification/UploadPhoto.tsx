@@ -11,6 +11,7 @@ import {
   Modal,
   Image,
   ImageBackground,
+  PermissionsAndroid,
 } from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
 import RNFS from 'react-native-fs';
@@ -84,9 +85,38 @@ const UploadImage: React.FC = () => {
     }
   };
 
+  // ✅ NEW: Request storage permission for Android < 10
+  const requestStoragePermission = async (): Promise<boolean> => {
+    if (Platform.OS === 'android' && Platform.Version < 29) {
+      try {
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+          {
+            title: 'Storage Permission Required',
+            message: 'App needs access to your storage to save images',
+            buttonNeutral: 'Ask Me Later',
+            buttonNegative: 'Cancel',
+            buttonPositive: 'OK',
+          }
+        );
+        return granted === PermissionsAndroid.RESULTS.GRANTED;
+      } catch (err) {
+        console.warn(err);
+        return false;
+      }
+    }
+    return true; // Permission not needed on Android 10+ or iOS
+  };
+
   const downloadImageToGallery = async () => {
     if (!processedImagePath) {
       Alert.alert('Error', 'No image available to download.');
+      return;
+    }
+
+    const hasPermission = await requestStoragePermission();
+    if (!hasPermission) {
+      Alert.alert('Permission Denied', 'Storage permission is required to save the image.');
       return;
     }
 
@@ -104,18 +134,25 @@ const UploadImage: React.FC = () => {
 
       if (result.statusCode === 200) {
         if (Platform.OS === 'android' && Number(Platform.Version) >= 30) {
-          Alert.alert('Success', 'Image downloaded! Check your Gallery.');
+          Alert.alert('Success', 'Image saved to Gallery!');
         } else {
-          await RNFS.moveFile(downloadDest, `${RNFS.PicturesDirectoryPath}/${fileName}`);
-          Alert.alert('Success', 'Image saved to gallery!');
+          // For Android versions < 30 (including < 10)
+          try {
+            const picturePath = `${RNFS.PicturesDirectoryPath}/${fileName}`;
+            await RNFS.moveFile(downloadDest, picturePath);
+            Alert.alert('Success', 'Image saved to Gallery!');
+          } catch (moveError) {
+            console.error('Error moving file to Pictures directory:', moveError);
+            Alert.alert('Error', 'Failed to save image to Gallery.');
+          }
         }
         setDownloadedFilePath(downloadDest);
       } else {
-        Alert.alert('Error', 'Failed to download the image.Android version incompatible.');
+        Alert.alert('Error', 'Download failed.');
       }
     } catch (error) {
       console.error('Error downloading the image:', error);
-      Alert.alert('Error', 'Failed to download the image.Android version incompatible.');
+      Alert.alert('Error', 'Download failed.');
     } finally {
       setDownloading(false);
     }
