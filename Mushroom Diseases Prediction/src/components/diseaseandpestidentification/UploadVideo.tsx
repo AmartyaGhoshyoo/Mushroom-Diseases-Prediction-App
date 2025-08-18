@@ -228,7 +228,12 @@ const UploadAndProcessVideo: React.FC = () => {
           <Text style={styles.buttonText}>Select Video from Gallery</Text>
         </TouchableOpacity>
 
-        {loading && <ActivityIndicator size="large" color="#FFFFFF" style={styles.spinner} />}
+        {loading && (
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator size="large" color="#FFFFFF" />
+            <Text style={styles.loadingText}>Processing video...</Text>
+          </View>
+        )}
 
         {checkingDuration && (
           <View style={styles.checkingContainer}>
@@ -277,7 +282,12 @@ const UploadAndProcessVideo: React.FC = () => {
           </>
         )}
 
-        {downloading && <ActivityIndicator size="large" color="#FFFFFF" style={styles.spinner} />}
+        {downloading && (
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator size="large" color="#FFFFFF" />
+            <Text style={styles.loadingText}>Saving video...</Text>
+          </View>
+        )}
 
         {downloadedFilePath && (
           <TouchableOpacity style={styles.button} onPress={() => setIsModalVisible(true)}>
@@ -368,6 +378,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
     borderRadius: 8,
     marginTop: 20,
+  },
+  loadingContainer: { 
+    marginTop: 20, 
+    alignItems: 'center' 
+  },
+  loadingText: { 
+    color: '#FFFFFF', 
+    marginTop: 10, 
+    fontSize: 14 
   },
   spinner: { marginTop: 20 },
   checkingContainer: { 
