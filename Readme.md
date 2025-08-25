@@ -2,7 +2,7 @@
 
 This project is an AI-powered application that detects and classifies diseases in mushrooms from images using the YOLOv5 object detection model. Designed to help farmers and researchers identify diseases early, the app provides fast, accurate results with an easy-to-use interface.
 
-![Mushroom Detection Demo](Mushroom.jpg)
+![Mushroom Detection Demo](MushroomApp.jpg)
 
 ---
 
